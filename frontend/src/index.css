@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-800 font-sans antialiased tracking-normal leading-relaxed;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-bold text-slate-900 tracking-tight;
+  }
+
+  code, pre {
+    @apply font-mono;
+  }
+
+  ::selection {
+    @apply bg-blue-600 text-white;
+  }
+}
+
+@layer components {
+  /* Documentation Callouts like Kubernetes & GitHub */
+  .doc-callout {
+    @apply my-6 p-4 rounded-lg border text-sm leading-relaxed relative overflow-hidden;
+  }
+  
+  .doc-callout-note {
+    @apply bg-blue-50/60 border-blue-200 text-blue-950 dark:bg-blue-950/30 dark:border-blue-800 dark:text-blue-100;
+  }
+  .doc-callout-note::before {
+    content: '';
+    @apply absolute left-0 top-0 bottom-0 w-1 bg-blue-600;
+  }
+
+  .doc-callout-important {
+    @apply bg-purple-50/60 border-purple-200 text-purple-950 dark:bg-purple-950/30 dark:border-purple-800 dark:text-purple-100;
+  }
+  .doc-callout-important::before {
+    content: '';
+    @apply absolute left-0 top-0 bottom-0 w-1 bg-purple-600;
+  }
+
+  .doc-callout-tip {
+    @apply bg-emerald-50/60 border-emerald-200 text-emerald-950 dark:bg-emerald-950/30 dark:border-emerald-800 dark:text-emerald-100;
+  }
+  .doc-callout-tip::before {
+    content: '';
+    @apply absolute left-0 top-0 bottom-0 w-1 bg-emerald-600;
+  }
+
+  .doc-callout-warning {
+    @apply bg-amber-50/60 border-amber-200 text-amber-950 dark:bg-amber-950/30 dark:border-amber-800 dark:text-amber-100;
+  }
+  .doc-callout-warning::before {
+    content: '';
+    @apply absolute left-0 top-0 bottom-0 w-1 bg-amber-500;
+  }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar for Light & Dark Theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded hover:bg-slate-400 transition-colors;
+}
