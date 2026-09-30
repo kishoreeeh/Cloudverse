@@ -13,6 +13,7 @@ export default function VideosTab({ topics = [], techSlug: propTechSlug }) {
 
   const [selectedTopicId, setSelectedTopicId] = useState(null);
   const [topicDetail, setTopicDetail] = useState(null);
+  const [activeEmbedId, setActiveEmbedId] = useState(null);
 
   const { isBookmarked, toggleBookmark } = useBookmarkStore();
 
@@ -29,39 +30,64 @@ export default function VideosTab({ topics = [], techSlug: propTechSlug }) {
         const res = await topicService.getById(selectedTopicId);
         if (res.data && res.data.videoLinks) {
           setTopicDetail(res.data);
+        } else {
+          setTopicDetail(null);
         }
       } catch (err) {
-        // Fallback to local topic object if API is unavailable
+        setTopicDetail(null);
       }
     };
     fetchTopic();
+    setActiveEmbedId(null);
   }, [selectedTopicId]);
 
   const activeTopicInList = topics.find(t => t.id === selectedTopicId) || topics[0];
 
-  // Default fallback YouTube videos for each topic if backend DB has none
+  // Tech-specific secondary fallback embed IDs
+  const getTechFallbackEmbedId = (slug) => {
+    switch (slug) {
+      case 'aws': return 'ulprqHHWlng';
+      case 'docker': return '3c-iBn73dDE';
+      case 'kubernetes': return 'PH-2FfFD2PU';
+      case 'linux': return 's3jLFa5e68A';
+      case 'git': return 'HVsySz-h9r4';
+      case 'terraform': return 'SLB_c_ayRMo';
+      default: return 'k1RI5locZE4';
+    }
+  };
+
+  const primaryEmbedId = activeTopicInList?.youtubeEmbedId || getTechFallbackEmbedId(techSlug);
+  const secondaryEmbedId = getTechFallbackEmbedId(techSlug);
+
+  // Default fallback YouTube videos for each topic
   const defaultVideos = activeTopicInList ? [
     {
       title: `${activeTopicInList.title} - Complete Masterclass & Architecture Guide`,
-      url: activeTopicInList.youtubeEmbedId 
-        ? `https://www.youtube.com/watch?v=${activeTopicInList.youtubeEmbedId}`
-        : `https://www.youtube.com/results?search_query=${encodeURIComponent(techSlug + ' ' + activeTopicInList.title + ' tutorial')}`,
-      channel: 'DevOps & Cloud Masterclass',
-      embedId: activeTopicInList.youtubeEmbedId || 'ulprqHHWlng'
+      url: `https://www.youtube.com/watch?v=${primaryEmbedId}`,
+      channel: 'DevOps & Cloud Academy',
+      embedId: primaryEmbedId
     },
     {
-      title: `${activeTopicInList.title} - Hands-On CLI & Production Demo`,
-      url: `https://www.youtube.com/results?search_query=${encodeURIComponent(techSlug + ' ' + activeTopicInList.title + ' hands on demo')}`,
+      title: `${activeTopicInList.title} - Production Hands-On Lab & Real-World Practice`,
+      url: `https://www.youtube.com/watch?v=${secondaryEmbedId}`,
       channel: 'CloudVerse Engineering',
-      embedId: '3c-iBn73dDE'
+      embedId: secondaryEmbedId
     }
   ] : [];
 
-  const videos = (topicDetail?.videoLinks && topicDetail.videoLinks.length > 0)
-    ? topicDetail.videoLinks
-    : defaultVideos;
+  // Local videos defined on topic object directly
+  const localVideos = activeTopicInList?.videoLinks || [];
 
-  const currentEmbedId = activeTopicInList?.youtubeEmbedId || extractYouTubeId(videos[0]?.url) || 'ulprqHHWlng';
+  // Filter out any broken/dummy example links from backend DB if present
+  const validBackendVideos = (topicDetail?.videoLinks || []).filter(
+    v => v.url && !v.url.includes('example1') && !v.url.includes('example2')
+  );
+
+  const videos = validBackendVideos.length > 0 
+    ? validBackendVideos 
+    : (localVideos.length > 0 ? localVideos : defaultVideos);
+
+  const currentEmbedId = activeEmbedId || primaryEmbedId;
 
   return (
     <div className="flex flex-col lg:flex-row gap-8 items-start">
@@ -83,7 +109,10 @@ export default function VideosTab({ topics = [], techSlug: propTechSlug }) {
             return (
               <button
                 key={topic.id}
-                onClick={() => setSelectedTopicId(topic.id)}
+                onClick={() => {
+                  setSelectedTopicId(topic.id);
+                  setActiveEmbedId(null);
+                }}
                 className={cn(
                   "w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all text-left truncate",
                   isSelected
@@ -136,15 +165,15 @@ export default function VideosTab({ topics = [], techSlug: propTechSlug }) {
                 <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                   <div className="flex items-center gap-2.5">
                     <Tv className="w-5 h-5 text-red-500" />
-                    <span className="font-extrabold text-sm sm:text-base text-slate-100">
-                      Watch Video Tutorial: {activeTopicInList.title}
+                    <span className="font-extrabold text-sm sm:text-base text-slate-100 truncate">
+                      Watch: {activeTopicInList.title}
                     </span>
                   </div>
                   <a
                     href={`https://www.youtube.com/watch?v=${currentEmbedId}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-xl bg-red-600 hover:bg-red-700 text-white transition-all shadow-xs"
+                    className="flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-xl bg-red-600 hover:bg-red-700 text-white transition-all shadow-xs shrink-0"
                   >
                     <span>Open in YouTube</span>
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -153,7 +182,8 @@ export default function VideosTab({ topics = [], techSlug: propTechSlug }) {
 
                 <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-slate-950 border border-slate-800 shadow-md">
                   <iframe
-                    src={`https://www.youtube.com/embed/${currentEmbedId}?autoplay=0&rel=0`}
+                    key={currentEmbedId}
+                    src={`https://www.youtube.com/embed/${currentEmbedId}?autoplay=1&rel=0`}
                     title={activeTopicInList.title}
                     className="w-full h-full border-0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -172,46 +202,57 @@ export default function VideosTab({ topics = [], techSlug: propTechSlug }) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {videos.map((video, idx) => {
                     const videoId = extractYouTubeId(video.url) || currentEmbedId;
-                    const thumbnail = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+                    const thumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
                     const bookmarkId = `v-${selectedTopicId}-${idx}`;
                     const bookmarked = isBookmarked(bookmarkId);
+                    const isPlayingInPlayer = videoId === currentEmbedId;
 
                     return (
-                      <Card key={idx} hoverable padding="none" className="overflow-hidden bg-white border-slate-200/90 shadow-2xs flex flex-col justify-between group">
-                        <a
-                          href={video.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block relative aspect-video bg-slate-100 overflow-hidden"
+                      <Card key={idx} hoverable padding="none" className={cn(
+                        "overflow-hidden bg-white border-slate-200/90 shadow-2xs flex flex-col justify-between group transition-all",
+                        isPlayingInPlayer && "ring-2 ring-emerald-500 border-emerald-500"
+                      )}>
+                        <button
+                          type="button"
+                          onClick={() => setActiveEmbedId(videoId)}
+                          className="block relative aspect-video bg-slate-100 overflow-hidden w-full text-left"
                         >
                           <img
                             src={thumbnail}
                             alt={video.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                           />
-                          <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                          <div className={cn(
+                            "absolute inset-0 bg-slate-900/50 transition-opacity flex items-center justify-center gap-2",
+                            isPlayingInPlayer ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                          )}>
                             <div className="w-12 h-12 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg">
                               <Play className="w-5 h-5 ml-0.5 fill-current" />
                             </div>
+                            {isPlayingInPlayer && (
+                              <span className="px-2.5 py-1 rounded-full bg-emerald-500 text-white text-xs font-bold shadow-md">
+                                Now Playing
+                              </span>
+                            )}
                           </div>
-                        </a>
+                        </button>
 
                         <div className="p-4 space-y-3 flex-1 flex flex-col justify-between">
-                          <a
-                            href={video.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="font-extrabold text-slate-900 text-sm group-hover:text-emerald-600 transition-colors line-clamp-2"
+                          <button
+                            type="button"
+                            onClick={() => setActiveEmbedId(videoId)}
+                            className="font-extrabold text-slate-900 text-sm group-hover:text-emerald-600 transition-colors line-clamp-2 text-left"
                           >
                             {video.title}
-                          </a>
+                          </button>
 
                           <div className="flex items-center justify-between pt-2 border-t border-slate-100 text-xs text-slate-500 font-semibold">
                             <span>{video.channel || 'CloudVerse Academy'}</span>
 
                             <div className="flex items-center gap-2">
                               <button
-                                onClick={() =>
+                                onClick={(e) => {
+                                  e.stopPropagation();
                                   toggleBookmark({
                                     id: bookmarkId,
                                     techSlug,
@@ -219,8 +260,8 @@ export default function VideosTab({ topics = [], techSlug: propTechSlug }) {
                                     title: video.title,
                                     subtitle: `Topic: ${activeTopicInList.title}`,
                                     link: video.url
-                                  })
-                                }
+                                  });
+                                }}
                                 className={cn(
                                   "p-1.5 rounded-lg border text-xs font-bold flex items-center gap-1 transition-all",
                                   bookmarked
@@ -236,7 +277,9 @@ export default function VideosTab({ topics = [], techSlug: propTechSlug }) {
                                 href={video.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
                                 className="p-1.5 rounded-lg bg-slate-100 border border-slate-200 text-slate-600 hover:text-slate-900"
+                                title="Open in YouTube"
                               >
                                 <ExternalLink className="w-3.5 h-3.5" />
                               </a>

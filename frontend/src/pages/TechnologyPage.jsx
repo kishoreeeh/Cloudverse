@@ -94,8 +94,11 @@ export default function TechnologyPage() {
   // Expandable interview Q&A state
   const [expandedInterviewIdx, setExpandedInterviewIdx] = useState(null);
 
-  // Accordion curriculum modules state (default open Part 1 on first visit)
-  const [openModules, setOpenModules] = useState({ 'mod-1': true });
+  // Topic search filter state
+  const [topicSearchQuery, setTopicSearchQuery] = useState('');
+
+  // Accordion curriculum modules state (default ALL open so topics are never collapsed away)
+  const [openModules, setOpenModules] = useState({ 'mod-1': true, 'mod-2': true, 'mod-3': true });
 
   const getCurriculumModules = (topics, techSlug) => {
     if (!topics || topics.length === 0) return [];
@@ -123,9 +126,9 @@ export default function TechnologyPage() {
 
   const curriculumModules = getCurriculumModules(topicsList, slug);
 
-  // Reset to Foundation (mod-1) open on tech change
+  // Default all modules open on tech change
   useEffect(() => {
-    setOpenModules({ 'mod-1': true });
+    setOpenModules({ 'mod-1': true, 'mod-2': true, 'mod-3': true });
   }, [slug]);
 
   // Auto-expand module containing the active topic if closed
@@ -353,97 +356,148 @@ export default function TechnologyPage() {
       )}
 
       {activeFeatureTab === 'docs' && (
-        /* Modern Professional Documentation Page View */
+        /* Modern Professional Documentation & Study Page View */
         <div className="flex flex-col lg:flex-row gap-8 items-start">
-          {/* Left Topics Navigation List (Spacious & Professional) */}
-          <aside className="w-full lg:w-80 xl:w-88 flex-shrink-0 bg-white border border-slate-200/80 rounded-2xl p-4 sm:p-5 shadow-xs space-y-4 sticky top-24">
-            <div className="flex items-center justify-between px-2 pb-3 border-b border-slate-100">
+          {/* Left Topics Navigation List (Spacious, Uncollapsed & Searchable) */}
+          <aside className="w-full lg:w-80 xl:w-88 flex-shrink-0 bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-xs space-y-4 sticky top-20">
+            <div className="flex items-center justify-between px-1 pb-3 border-b border-slate-100">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500">
                 <BookOpen className="w-4 h-4" style={{ color: tech.color }} />
-                <span>{tech.title} Curriculum</span>
+                <span>{tech.title} Topics ({topicsList.length})</span>
               </div>
-              <span className="text-[11px] font-bold text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full">
-                {currentTopicIndex + 1} / {topicsList.length}
-              </span>
+              <div className="flex items-center gap-1">
+                <button
+                  onClick={() => setOpenModules({ 'mod-1': true, 'mod-2': true, 'mod-3': true })}
+                  className="text-[10px] font-bold text-blue-600 hover:underline px-1.5 py-0.5 rounded bg-blue-50"
+                  title="Expand All Modules"
+                >
+                  Expand All
+                </button>
+              </div>
+            </div>
+
+            {/* Quick Topic Search Filter */}
+            <div className="relative">
+              <input
+                type="text"
+                value={topicSearchQuery}
+                onChange={(e) => setTopicSearchQuery(e.target.value)}
+                placeholder="Search topics & keywords..."
+                className="w-full pl-8 pr-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/30 transition-all"
+              />
+              <BookOpen className="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-2.5" />
             </div>
 
             <div className="space-y-3 max-h-[72vh] overflow-y-auto pr-1">
-              {curriculumModules.map((mod) => (
-                <div key={mod.id} className="border border-slate-200/80 rounded-xl overflow-hidden bg-slate-50/40">
-                  <button
-                    onClick={() => toggleModule(mod.id)}
-                    className="w-full flex items-center justify-between p-3 bg-slate-100/80 hover:bg-slate-200/60 text-left transition-colors"
-                  >
-                    <div className="flex items-center gap-2 min-w-0 flex-1 pr-1.5">
-                      <Layers className="w-4 h-4 flex-shrink-0" style={{ color: tech.color }} />
-                      <div className="min-w-0 flex-1">
-                        <div className="text-xs font-black text-slate-900 leading-snug break-words">{mod.title}</div>
-                        <div className="text-[10px] font-medium text-slate-500 leading-tight mt-0.5 break-words">{mod.subtitle}</div>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-1.5 flex-shrink-0 pl-1">
-                      <span className="text-[10px] font-bold text-slate-600 bg-white px-1.5 py-0.5 rounded border border-slate-200/80 shadow-2xs">
-                        {mod.topics.length}
-                      </span>
-                      <ChevronDown className={`w-4 h-4 text-slate-500 transition-transform duration-200 flex-shrink-0 ${openModules[mod.id] ? 'rotate-180' : ''}`} />
-                    </div>
-                  </button>
-
-                  <AnimatePresence initial={false}>
-                    {openModules[mod.id] && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="overflow-hidden"
-                      >
-                        <div className="p-1.5 space-y-1 bg-white border-t border-slate-200/50">
-                          {mod.topics.map((t, idx) => {
-                            const actualIndex = mod.indexOffset + idx;
-                            const isSelected = activeTopic?.id === t.id;
-                            const isCompleted = isTopicCompleted(slug, t.id);
-
-                            return (
-                              <button
-                                key={t.id}
-                                onClick={() => handleTopicSelect(t.slug)}
-                                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-xs transition-all text-left ${
-                                  isSelected
-                                    ? 'bg-slate-100 text-slate-900 font-bold shadow-2xs'
-                                    : isCompleted
-                                    ? 'bg-emerald-50/50 text-emerald-900 font-medium hover:bg-emerald-50'
-                                    : 'text-slate-600 font-medium hover:bg-slate-50 hover:text-slate-900'
-                                }`}
-                                style={isSelected ? { borderLeft: `3px solid ${tech.color}` } : { borderLeft: '3px solid transparent' }}
-                              >
-                                <div className="flex items-center gap-2.5 pr-2">
-                                  <span 
-                                    className={`w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold flex-shrink-0 ${
-                                      isSelected 
-                                        ? 'bg-slate-900 text-white shadow-2xs' 
-                                        : isCompleted 
-                                        ? 'bg-emerald-500 text-white shadow-2xs' 
-                                        : 'bg-slate-100 text-slate-500'
-                                    }`}
-                                  >
-                                    {isCompleted ? <Check className="w-3 h-3 stroke-[3]" /> : actualIndex + 1}
-                                  </span>
-                                  <span className="leading-snug">{t.title}</span>
-                                </div>
-                              </button>
-                            );
-                          })}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+              {topicSearchQuery.trim() ? (
+                /* Search Filtered Topics View */
+                <div className="space-y-1">
+                  {topicsList
+                    .filter(t => t.title.toLowerCase().includes(topicSearchQuery.toLowerCase()) || t.summary.toLowerCase().includes(topicSearchQuery.toLowerCase()))
+                    .map((t, idx) => {
+                      const isSelected = activeTopic?.id === t.id;
+                      const isCompleted = isTopicCompleted(slug, t.id);
+                      return (
+                        <button
+                          key={t.id}
+                          onClick={() => handleTopicSelect(t.slug)}
+                          className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs transition-all text-left ${
+                            isSelected
+                              ? 'bg-slate-900 text-white font-bold shadow-2xs'
+                              : isCompleted
+                              ? 'bg-emerald-50 text-emerald-900 font-semibold'
+                              : 'text-slate-700 font-medium hover:bg-slate-100'
+                          }`}
+                        >
+                          <div className="flex items-center gap-2 pr-2">
+                            <span className={`w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold shrink-0 ${isSelected ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-500'}`}>
+                              {idx + 1}
+                            </span>
+                            <span className="leading-snug">{t.title}</span>
+                          </div>
+                          {isCompleted && <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />}
+                        </button>
+                      );
+                    })}
                 </div>
-              ))}
+              ) : (
+                /* Full Module Curriculum View */
+                curriculumModules.map((mod) => (
+                  <div key={mod.id} className="border border-slate-200/80 rounded-xl overflow-hidden bg-slate-50/40">
+                    <button
+                      onClick={() => toggleModule(mod.id)}
+                      className="w-full flex items-center justify-between p-2.5 bg-slate-100/90 hover:bg-slate-200/70 text-left transition-colors"
+                    >
+                      <div className="flex items-center gap-2 min-w-0 flex-1 pr-1.5">
+                        <Layers className="w-3.5 h-3.5 shrink-0" style={{ color: tech.color }} />
+                        <div className="min-w-0 flex-1">
+                          <div className="text-xs font-bold text-slate-900 leading-snug break-words">{mod.title}</div>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-1 shrink-0">
+                        <span className="text-[10px] font-bold text-slate-600 bg-white px-1.5 py-0.5 rounded border border-slate-200">
+                          {mod.topics.length}
+                        </span>
+                        <ChevronDown className={`w-3.5 h-3.5 text-slate-500 transition-transform duration-200 ${openModules[mod.id] ? 'rotate-180' : ''}`} />
+                      </div>
+                    </button>
+
+                    <AnimatePresence initial={false}>
+                      {openModules[mod.id] && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="p-1 space-y-1 bg-white border-t border-slate-200/60">
+                            {mod.topics.map((t, idx) => {
+                              const actualIndex = mod.indexOffset + idx;
+                              const isSelected = activeTopic?.id === t.id;
+                              const isCompleted = isTopicCompleted(slug, t.id);
+
+                              return (
+                                <button
+                                  key={t.id}
+                                  onClick={() => handleTopicSelect(t.slug)}
+                                  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-xs transition-all text-left ${
+                                    isSelected
+                                      ? 'bg-slate-900 text-white font-bold shadow-2xs'
+                                      : isCompleted
+                                      ? 'bg-emerald-50/60 text-emerald-950 font-medium hover:bg-emerald-50'
+                                      : 'text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900'
+                                  }`}
+                                  style={isSelected ? { borderLeft: `3px solid ${tech.color}` } : { borderLeft: '3px solid transparent' }}
+                                >
+                                  <div className="flex items-center gap-2.5 pr-2">
+                                    <span 
+                                      className={`w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold shrink-0 ${
+                                        isSelected 
+                                          ? 'bg-white/20 text-white shadow-2xs' 
+                                          : isCompleted 
+                                          ? 'bg-emerald-500 text-white shadow-2xs' 
+                                          : 'bg-slate-100 text-slate-600'
+                                      }`}
+                                    >
+                                      {isCompleted ? <Check className="w-3 h-3 stroke-[3]" /> : actualIndex + 1}
+                                    </span>
+                                    <span className="leading-snug">{t.title}</span>
+                                  </div>
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ))
+              )}
             </div>
           </aside>
 
-          {/* Main Content Area (Unified Clean Canvas) */}
+          {/* Main Content Area (Unified Study Canvas) */}
           <main className="flex-1 w-full min-w-0">
             {activeTopic ? (
               <AnimatePresence mode="wait">
@@ -453,19 +507,24 @@ export default function TechnologyPage() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.25 }}
-                  className="bg-white rounded-3xl p-6 sm:p-12 border border-slate-200/80 shadow-sm space-y-10"
+                  className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-xs space-y-10"
                 >
                   {/* Topic Header Section */}
-                  <div className="border-b border-slate-100 pb-8">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                  <div className="border-b border-slate-100 pb-6 space-y-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                       <div className="flex items-center gap-2.5">
                         <span 
-                          className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full"
+                          className="text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full"
                           style={{ backgroundColor: `${tech.color}15`, color: tech.color }}
                         >
                           {activeTopic.category || tech.title}
                         </span>
-                        <span className="text-xs text-slate-400 font-medium">Topic {currentTopicIndex + 1} of {topicsList.length}</span>
+                        <span className="text-xs text-slate-500 font-semibold">Topic {currentTopicIndex + 1} of {topicsList.length}</span>
+                        {activeTopic.level && (
+                          <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">
+                            {activeTopic.level}
+                          </span>
+                        )}
                       </div>
 
                       <div className="flex items-center gap-2.5">
@@ -494,7 +553,7 @@ export default function TechnologyPage() {
                         {/* Topic Completion Toggle Button */}
                         <button
                           onClick={() => toggleTopicCompleted(slug, activeTopic.id)}
-                          className={`px-4 py-2.5 rounded-xl border text-xs font-bold flex items-center gap-2 transition-all shadow-2xs ${
+                          className={`px-4 py-2 rounded-xl border text-xs font-bold flex items-center gap-2 transition-all shadow-2xs ${
                             activeTopicCompleted
                               ? 'bg-emerald-500 text-white border-emerald-500 hover:bg-emerald-600'
                               : 'bg-slate-900 text-white border-slate-900 hover:bg-slate-800'
@@ -515,51 +574,74 @@ export default function TechnologyPage() {
                       </div>
                     </div>
 
-                    <h1 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight mb-4">
+                    <h1 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
                       {activeTopic.title}
                     </h1>
 
-                    <p className="text-lg text-slate-600 font-normal leading-relaxed">
+                    <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed">
                       {activeTopic.summary}
                     </p>
+
+                    {/* Table of Contents Quick Jump Bar */}
+                    <div className="pt-2 flex items-center gap-2 overflow-x-auto no-scrollbar border-t border-slate-100">
+                      <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider shrink-0 mr-1">Quick Jump:</span>
+                      {[
+                        { label: 'Overview', href: '#overview' },
+                        { label: 'Why Use It', href: '#why-use-it' },
+                        { label: 'Key Features', href: '#features' },
+                        { label: 'Use Case', href: '#use-case' },
+                        { label: 'Architecture', href: '#architecture' },
+                        ...(activeTopic.commands ? [{ label: 'CLI Commands', href: '#commands' }] : []),
+                        ...(activeTopic.bestPractices ? [{ label: 'Best Practices', href: '#best-practices' }] : []),
+                        { label: 'Video Tutorial', href: '#video-tutorial' }
+                      ].map((item, idx) => (
+                        <a
+                          key={idx}
+                          href={item.href}
+                          className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-900 hover:text-white text-slate-600 text-xs font-bold whitespace-nowrap transition-colors"
+                        >
+                          {item.label}
+                        </a>
+                      ))}
+                    </div>
                   </div>
 
                   {/* 1. What is it? */}
-                  <div className="space-y-4 pt-2">
-                    <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 flex items-center gap-2.5">
-                      <div className="w-2 h-6 rounded-full bg-blue-600" />
+                  <div id="overview" className="space-y-3 scroll-mt-24">
+                    <h2 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2.5">
+                      <div className="w-2.5 h-6 rounded-full bg-blue-600" />
                       What is {activeTopic.title}?
                     </h2>
-                    <div className="text-base text-slate-700 leading-relaxed font-normal whitespace-pre-line">
+                    <div className="text-base text-slate-700 leading-relaxed font-normal whitespace-pre-line bg-slate-50/50 p-5 rounded-2xl border border-slate-200/60">
                       {activeTopic.whatIsIt}
                     </div>
                   </div>
 
                   {/* 2. Why is it used? */}
-                  <div className="space-y-4 border-t border-slate-100 pt-8">
-                    <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 flex items-center gap-2.5">
-                      <div className="w-2 h-6 rounded-full bg-indigo-600" />
+                  <div id="why-use-it" className="space-y-3 border-t border-slate-100 pt-8 scroll-mt-24">
+                    <h2 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2.5">
+                      <div className="w-2.5 h-6 rounded-full bg-indigo-600" />
                       Why is it used?
                     </h2>
-                    <p className="text-base text-slate-700 leading-relaxed font-normal">
+                    <p className="text-base text-slate-700 leading-relaxed font-normal bg-indigo-50/30 p-5 rounded-2xl border border-indigo-100/60">
                       {activeTopic.whyIsItUsed}
                     </p>
                   </div>
 
                   {/* 3. Key Features & 4. Advantages (Clean Two-Column Grid) */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-slate-100 pt-8">
+                  <div id="features" className="grid grid-cols-1 md:grid-cols-2 gap-6 border-t border-slate-100 pt-8 scroll-mt-24">
                     {/* Features */}
-                    <div className="bg-slate-50/70 rounded-2xl p-6 border border-slate-200/60 space-y-4">
+                    <div className="bg-slate-50/80 rounded-2xl p-6 border border-slate-200/80 space-y-4">
                       <div className="flex items-center gap-2.5 text-slate-900">
                         <div className="p-2 rounded-xl bg-emerald-100 text-emerald-700">
                           <Sparkles className="w-5 h-5" />
                         </div>
-                        <h3 className="text-lg font-bold">Key Features</h3>
+                        <h3 className="text-lg font-extrabold">Key Features</h3>
                       </div>
                       <ul className="space-y-3 text-sm text-slate-700 font-medium">
                         {activeTopic.features?.map((feat, idx) => (
                           <li key={idx} className="flex items-start gap-2.5">
-                            <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                             <span className="leading-relaxed">{feat}</span>
                           </li>
                         ))}
@@ -567,17 +649,17 @@ export default function TechnologyPage() {
                     </div>
 
                     {/* Advantages */}
-                    <div className="bg-slate-50/70 rounded-2xl p-6 border border-slate-200/60 space-y-4">
+                    <div className="bg-slate-50/80 rounded-2xl p-6 border border-slate-200/80 space-y-4">
                       <div className="flex items-center gap-2.5 text-slate-900">
                         <div className="p-2 rounded-xl bg-amber-100 text-amber-700">
                           <Award className="w-5 h-5" />
                         </div>
-                        <h3 className="text-lg font-bold">Key Advantages</h3>
+                        <h3 className="text-lg font-extrabold">Key Advantages</h3>
                       </div>
                       <ul className="space-y-3 text-sm text-slate-700 font-medium">
                         {activeTopic.advantages?.map((adv, idx) => (
                           <li key={idx} className="flex items-start gap-2.5">
-                            <CheckCircle2 className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
                             <span className="leading-relaxed">{adv}</span>
                           </li>
                         ))}
@@ -586,12 +668,12 @@ export default function TechnologyPage() {
                   </div>
 
                   {/* 5. Real-World Use Case (Sleek Callout Box) */}
-                  <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-indigo-950 text-white rounded-2xl p-6 sm:p-8 shadow-md space-y-3">
+                  <div id="use-case" className="bg-gradient-to-r from-slate-900 via-slate-800 to-indigo-950 text-white rounded-2xl p-6 sm:p-8 shadow-md space-y-3 scroll-mt-24">
                     <div className="flex items-center gap-3">
                       <div className="p-2 rounded-xl bg-white/10 text-amber-400">
                         <Briefcase className="w-5 h-5" />
                       </div>
-                      <h3 className="text-lg font-bold text-white">Real-World Industry Use Case</h3>
+                      <h3 className="text-lg font-extrabold text-white">Real-World Industry Use Case</h3>
                     </div>
                     <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal">
                       {activeTopic.useCase}
@@ -599,12 +681,12 @@ export default function TechnologyPage() {
                   </div>
 
                   {/* 6. Working / Architecture Explanation */}
-                  <div className="space-y-4 border-t border-slate-100 pt-8">
-                    <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 flex items-center gap-2.5">
-                      <div className="w-2 h-6 rounded-full bg-purple-600" />
+                  <div id="architecture" className="space-y-4 border-t border-slate-100 pt-8 scroll-mt-24">
+                    <h2 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2.5">
+                      <div className="w-2.5 h-6 rounded-full bg-purple-600" />
                       Working & Architecture
                     </h2>
-                    <p className="text-base text-slate-700 leading-relaxed font-normal">
+                    <p className="text-base text-slate-700 leading-relaxed font-normal bg-purple-50/20 p-5 rounded-2xl border border-purple-100/60">
                       {activeTopic.workingExplanation}
                     </p>
                   </div>
@@ -612,14 +694,14 @@ export default function TechnologyPage() {
                   {/* 7. Step-by-Step Usage Walkthrough */}
                   {activeTopic.usageSteps && (
                     <div className="space-y-6 border-t border-slate-100 pt-8">
-                      <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 flex items-center gap-2.5">
-                        <div className="w-2 h-6 rounded-full bg-sky-600" />
+                      <h2 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2.5">
+                        <div className="w-2.5 h-6 rounded-full bg-sky-600" />
                         Step-by-Step Usage Walkthrough
                       </h2>
-                      <ol className="space-y-4">
+                      <ol className="space-y-3">
                         {activeTopic.usageSteps.map((step, idx) => (
-                          <li key={idx} className="flex items-start gap-4 bg-slate-50/80 p-4 rounded-xl border border-slate-200/60">
-                            <span className="w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5 shadow-2xs">
+                          <li key={idx} className="flex items-start gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200/60">
+                            <span className="w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
                               {idx + 1}
                             </span>
                             <span className="text-sm sm:text-base font-medium text-slate-800 leading-relaxed">{step}</span>
@@ -631,7 +713,7 @@ export default function TechnologyPage() {
 
                   {/* 8. CLI Commands / Syntax Example */}
                   {activeTopic.commands && (
-                    <div className="bg-slate-900 text-slate-100 rounded-2xl shadow-md overflow-hidden border border-slate-800">
+                    <div id="commands" className="bg-slate-900 text-slate-100 rounded-2xl shadow-md overflow-hidden border border-slate-800 scroll-mt-24">
                       <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-slate-950/50">
                         <div className="flex items-center gap-3">
                           <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400">
@@ -659,21 +741,56 @@ export default function TechnologyPage() {
 
                   {/* 9. Best Practices */}
                   {activeTopic.bestPractices && (
-                    <div className="space-y-6 border-t border-slate-100 pt-8">
-                      <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 flex items-center gap-2.5">
-                        <div className="w-2 h-6 rounded-full bg-emerald-600" />
+                    <div id="best-practices" className="space-y-6 border-t border-slate-100 pt-8 scroll-mt-24">
+                      <h2 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2.5">
+                        <div className="w-2.5 h-6 rounded-full bg-emerald-600" />
                         Best Practices & Production Guidelines
                       </h2>
                       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {activeTopic.bestPractices.map((bp, idx) => (
                           <li key={idx} className="flex items-start gap-3 text-sm text-slate-700 bg-emerald-50/40 border border-emerald-100 p-4 rounded-xl font-medium">
-                            <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                             <span className="leading-relaxed">{bp}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                   )}
+
+                  {/* Integrated Interactive Video Tutorial Section */}
+                  <div id="video-tutorial" className="space-y-4 border-t border-slate-100 pt-8 scroll-mt-24">
+                    <div className="flex items-center justify-between">
+                      <h2 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2.5">
+                        <div className="w-2.5 h-6 rounded-full bg-red-600" />
+                        Video Tutorial: {activeTopic.title}
+                      </h2>
+                      <a
+                        href={youtubeDirectUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition-all shadow-xs"
+                      >
+                        <span>Watch on YouTube</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
+
+                    <Card className="p-4 sm:p-6 bg-slate-950 text-white border-slate-800 shadow-lg space-y-4 rounded-2xl">
+                      <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-black border border-slate-800 shadow-md">
+                        <iframe
+                          src={`https://www.youtube.com/embed/${activeTopic.youtubeEmbedId || 'k1RI5locZE4'}?rel=0`}
+                          title={activeTopic.title}
+                          className="w-full h-full border-0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        />
+                      </div>
+                      <div className="flex items-center justify-between text-xs text-slate-400 pt-2 border-t border-slate-800 font-semibold">
+                        <span>Official DevOps & Cloud Video Tutorial</span>
+                        <span>Click icon top right to play fullscreen</span>
+                      </div>
+                    </Card>
+                  </div>
 
                   {/* Seamless Bottom Navigation Footer */}
                   <div className="flex items-center justify-between pt-10 border-t border-slate-200 mt-12">

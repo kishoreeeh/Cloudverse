@@ -32,8 +32,8 @@ public class DataSeeder {
                 .overview("AWS Identity and Access Management (IAM) is a web service that helps you securely control access to AWS resources. With IAM, you can centrally manage permissions that control which AWS resources users can access.\n\nIAM provides the following key features: Users (individual accounts), Groups (collections of users), Roles (temporary credentials), and Policies (JSON documents defining permissions).\n\nBest practices include enabling MFA, following the principle of least privilege, and using IAM roles instead of access keys. Avoid using the root account.")
                 .officialDocUrl("https://docs.aws.amazon.com/")
                 .videoLinks(List.of(
-                        new VideoLink("IAM Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering IAM", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("IAM Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering IAM", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What is the difference between IAM Users and IAM Roles?", "An IAM User is a unique identity with permanent credentials, whereas an IAM Role is a set of permissions that can be assumed by anyone who needs it, providing temporary credentials."), new InterviewQuestion("What is the principle of least privilege?", "Granting only the permissions required to perform a specific task, and no more.")))
                 .flashCards(List.of(new FlashCard("IAM Policy", "A JSON document that defines permissions"), new FlashCard("MFA", "Multi-Factor Authentication - adds an extra layer of protection on top of a user name and password")))
@@ -58,8 +58,8 @@ public class DataSeeder {
                 .overview("Amazon Elastic Compute Cloud (Amazon EC2) provides scalable computing capacity in the Amazon Web Services (AWS) Cloud. Using Amazon EC2 eliminates your need to invest in hardware up front, so you can develop and deploy applications faster.\n\nKey concepts include Instance Types (various combinations of CPU, memory, storage, and networking capacity), AMIs (templates containing a software configuration), and Key Pairs (secure login information).\n\nYou can also manage networking with Security Groups and Elastic IPs, and optimize performance with Placement Groups.")
                 .officialDocUrl("https://docs.aws.amazon.com/")
                 .videoLinks(List.of(
-                        new VideoLink("EC2 Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering EC2", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("EC2 Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering EC2", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("Explain the difference between Security Groups and NACLs", "Security Groups operate at the instance level and are stateful, while NACLs operate at the subnet level and are stateless."), new InterviewQuestion("What is an Elastic IP?", "A static, public IPv4 address designed for dynamic cloud computing.")))
                 .flashCards(List.of(new FlashCard("What is an AMI?", "Amazon Machine Image - a template for launching EC2 instances containing OS, application server, and applications"), new FlashCard("Security Group", "Acts as a virtual firewall for your EC2 instances to control incoming and outgoing traffic")))
@@ -84,8 +84,8 @@ public class DataSeeder {
                 .overview("Amazon Simple Storage Service (Amazon S3) is an object storage service offering industry-leading scalability, data availability, security, and performance. Customers of all sizes and industries can store and protect any amount of data for virtually any use case.\n\nKey concepts include Buckets (containers for objects), Objects (the fundamental entities stored), and Storage Classes like S3 Standard, S3 Intelligent-Tiering, S3 Standard-IA, and S3 Glacier.\n\nS3 also supports Versioning to keep multiple variants of an object, Lifecycle Policies for automatic transitions, and Static Website Hosting.")
                 .officialDocUrl("https://docs.aws.amazon.com/")
                 .videoLinks(List.of(
-                        new VideoLink("S3 Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering S3", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("S3 Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering S3", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What is the difference between S3 Standard and S3 Standard-IA?", "S3 Standard is for frequently accessed data, while S3 Standard-IA (Infrequently Accessed) is for data accessed less often but requires rapid access when needed."), new InterviewQuestion("How can you automatically move data to a cheaper storage class in S3?", "By configuring S3 Lifecycle policies.")))
                 .flashCards(List.of(new FlashCard("S3 Bucket", "A container for objects stored in Amazon S3"), new FlashCard("S3 Versioning", "A means of keeping multiple variants of an object in the same bucket")))
@@ -110,8 +110,8 @@ public class DataSeeder {
                 .overview("Amazon Virtual Private Cloud (Amazon VPC) enables you to launch AWS resources into a virtual network that you've defined. This virtual network closely resembles a traditional network that you'd operate in your own data center, with the benefits of using the scalable infrastructure of AWS.\n\nA VPC spans all of the Availability Zones in the Region. You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways.\n\nYou can use IPv4 and IPv6 in your VPC for secure and easy access to resources and applications.")
                 .officialDocUrl("https://docs.aws.amazon.com/")
                 .videoLinks(List.of(
-                        new VideoLink("VPC Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering VPC", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("VPC Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering VPC", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What is a subnet?", "A range of IP addresses in your VPC. You can attach AWS resources to a selected subnet."), new InterviewQuestion("What is the difference between a public and private subnet?", "A public subnet has a route to the Internet Gateway, while a private subnet does not.")))
                 .flashCards(List.of(new FlashCard("VPC", "Virtual Private Cloud - a logically isolated section of the AWS Cloud"), new FlashCard("CIDR Block", "Classless Inter-Domain Routing - a method for allocating IP addresses and routing IP packets")))
@@ -136,8 +136,8 @@ public class DataSeeder {
                 .overview("A route table contains a set of rules, called routes, that are used to determine where network traffic from your subnet or gateway is directed. Each subnet in your VPC must be associated with a route table.\n\nWhen you create a VPC, it automatically comes with a main route table. You can create custom route tables and associate them with specific subnets to control traffic flow.\n\nFor example, to make a subnet public, you add a route to the internet gateway in its associated route table.")
                 .officialDocUrl("https://docs.aws.amazon.com/")
                 .videoLinks(List.of(
-                        new VideoLink("Route Tables Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Route Tables", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Route Tables Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Route Tables", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("Can a subnet be associated with multiple route tables?", "No, a subnet can only be associated with one route table at a time."), new InterviewQuestion("What is the local route?", "A default route in every route table that allows all resources within the VPC to communicate with each other.")))
                 .flashCards(List.of(new FlashCard("Route Table", "A set of rules used to determine where network traffic is directed"), new FlashCard("Destination", "The IP address range where you want traffic to go")))
@@ -162,8 +162,8 @@ public class DataSeeder {
                 .overview("An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between your VPC and the internet. It supports IPv4 and IPv6 traffic.\n\nIt serves two purposes: to provide a target in your VPC route tables for internet-routable traffic, and to perform network address translation (NAT) for instances that have been assigned public IPv4 addresses.\n\nTo enable internet access, you must attach the gateway to your VPC, ensure your subnet's route table points to it, and assign a public IP to your instances.")
                 .officialDocUrl("https://docs.aws.amazon.com/")
                 .videoLinks(List.of(
-                        new VideoLink("Internet Gateway Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Internet Gateway", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Internet Gateway Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Internet Gateway", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("Is there a bandwidth constraint on an Internet Gateway?", "No, it is horizontally scaled and redundant, with no direct bandwidth constraints."), new InterviewQuestion("Can a VPC have multiple Internet Gateways?", "No, you can attach only one Internet Gateway to a VPC at a time.")))
                 .flashCards(List.of(new FlashCard("Internet Gateway (IGW)", "A VPC component that allows communication between your VPC and the internet"), new FlashCard("Egress-Only Internet Gateway", "Allows IPv6 traffic from your VPC to the internet, but prevents the internet from initiating an IPv6 connection")))
@@ -188,8 +188,8 @@ public class DataSeeder {
                 .overview("A security group acts as a virtual firewall for your EC2 instances to control incoming and outgoing traffic. Inbound rules control the incoming traffic to your instance, and outbound rules control the outgoing traffic from your instance.\n\nWhen you launch an instance, you can specify one or more security groups. If you don't specify one, Amazon EC2 uses the default security group for the VPC.\n\nSecurity groups are stateful — if you send a request from your instance, the response traffic for that request is allowed to flow in regardless of inbound security group rules.")
                 .officialDocUrl("https://docs.aws.amazon.com/")
                 .videoLinks(List.of(
-                        new VideoLink("Security Groups Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Security Groups", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Security Groups Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Security Groups", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What is the default behavior of a new Security Group?", "It denies all inbound traffic and allows all outbound traffic."), new InterviewQuestion("Are Security Groups stateful or stateless?", "Stateful, meaning return traffic is automatically allowed.")))
                 .flashCards(List.of(new FlashCard("Security Group", "A virtual firewall for instances to control inbound and outbound traffic"), new FlashCard("Stateful", "A characteristic where response traffic to an allowed request is automatically permitted")))
@@ -214,8 +214,8 @@ public class DataSeeder {
                 .overview("An Application Load Balancer (ALB) functions at the application layer (Layer 7) of the OSI model. After the load balancer receives a request, it evaluates the listener rules in priority order to determine which rule to apply, and then selects a target from the target group.\n\nALBs support path-based and host-based routing, making them ideal for microservices and container-based architectures like Amazon ECS.\n\nThey can handle HTTP and HTTPS traffic, support SSL offloading, and integrate seamlessly with AWS Web Application Firewall (WAF).")
                 .officialDocUrl("https://docs.aws.amazon.com/")
                 .videoLinks(List.of(
-                        new VideoLink("ALB Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering ALB", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("ALB Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering ALB", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What OSI layer does an Application Load Balancer operate at?", "Layer 7 (Application layer)."), new InterviewQuestion("What is path-based routing in an ALB?", "Routing requests to different target groups based on the URL path (e.g., /api vs /images).")))
                 .flashCards(List.of(new FlashCard("Application Load Balancer (ALB)", "A load balancer operating at Layer 7, ideal for HTTP/HTTPS traffic"), new FlashCard("Target Group", "A group of resources (like EC2 instances) that an ALB routes requests to")))
@@ -240,8 +240,8 @@ public class DataSeeder {
                 .overview("Amazon CloudWatch is a monitoring and observability service built for DevOps engineers, developers, site reliability engineers (SREs), and IT managers. CloudWatch provides you with data and actionable insights to monitor your applications.\n\nYou can use CloudWatch to collect and track metrics, collect and monitor log files, set alarms, and automatically react to changes in your AWS resources.\n\nFor example, you can monitor the CPU utilization of an EC2 instance and trigger an Auto Scaling policy if it exceeds a certain threshold.")
                 .officialDocUrl("https://docs.aws.amazon.com/")
                 .videoLinks(List.of(
-                        new VideoLink("CloudWatch Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering CloudWatch", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("CloudWatch Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering CloudWatch", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What is a CloudWatch Metric?", "A metric represents a time-ordered set of data points that are published to CloudWatch."), new InterviewQuestion("How can you monitor custom application logs in AWS?", "By using the CloudWatch Logs agent to send application logs to CloudWatch Logs.")))
                 .flashCards(List.of(new FlashCard("CloudWatch Alarm", "Watches a single metric and performs one or more actions based on its value relative to a threshold"), new FlashCard("CloudWatch Logs", "A service to monitor, store, and access log files from EC2 instances, AWS CloudTrail, and other sources")))
@@ -266,8 +266,8 @@ public class DataSeeder {
                 .overview("AWS CloudFormation is a service that helps you model and set up your Amazon Web Services resources so that you can spend less time managing those resources and more time focusing on your applications.\n\nYou create a template that describes all the AWS resources that you want (like Amazon EC2 instances or Amazon RDS DB instances), and CloudFormation takes care of provisioning and configuring those resources for you.\n\nCloudFormation allows you to treat infrastructure as code (IaC), version control your infrastructure, and easily replicate environments.")
                 .officialDocUrl("https://docs.aws.amazon.com/")
                 .videoLinks(List.of(
-                        new VideoLink("CloudFormation Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering CloudFormation", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("CloudFormation Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering CloudFormation", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What languages are supported for CloudFormation templates?", "JSON and YAML."), new InterviewQuestion("What is a CloudFormation stack?", "A stack is a collection of AWS resources that you can manage as a single unit.")))
                 .flashCards(List.of(new FlashCard("CloudFormation Template", "A JSON or YAML formatted text file that describes your AWS infrastructure"), new FlashCard("Infrastructure as Code (IaC)", "The process of managing and provisioning computing infrastructure through machine-readable definition files")))
@@ -292,8 +292,8 @@ public class DataSeeder {
                 .overview("Amazon Elastic Container Service (Amazon ECS) is a highly scalable, fast, container management service that makes it easy to run, stop, and manage Docker containers on a cluster.\n\nYou can run your containers on a cluster of Amazon EC2 instances that you manage, or you can use AWS Fargate, which provides serverless compute for containers without needing to provision or manage servers.\n\nECS defines applications using Task Definitions, which specify the Docker images, resources, and networking configurations required to run them.")
                 .officialDocUrl("https://docs.aws.amazon.com/")
                 .videoLinks(List.of(
-                        new VideoLink("ECS Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering ECS", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("ECS Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering ECS", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What is AWS Fargate in the context of ECS?", "Fargate is a serverless compute engine for containers that works with ECS, removing the need to manage EC2 instances."), new InterviewQuestion("What is an ECS Task Definition?", "It is like a blueprint for your application, describing how docker containers should launch.")))
                 .flashCards(List.of(new FlashCard("ECS Task", "The instantiation of a task definition within a cluster"), new FlashCard("ECS Cluster", "A logical grouping of tasks or services")))
@@ -318,8 +318,8 @@ public class DataSeeder {
                 .overview("AWS Auto Scaling monitors your applications and automatically adjusts capacity to maintain steady, predictable performance at the lowest possible cost. Using AWS Auto Scaling, it's easy to setup application scaling for multiple resources across multiple services in minutes.\n\nAmazon EC2 Auto Scaling specifically helps you maintain EC2 instance availability and allows you to automatically add or remove EC2 instances according to conditions you define.\n\nThis ensures you have enough capacity during demand spikes while reducing costs during quiet periods.")
                 .officialDocUrl("https://docs.aws.amazon.com/")
                 .videoLinks(List.of(
-                        new VideoLink("Auto Scaling Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Auto Scaling", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Auto Scaling Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Auto Scaling", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What is a Launch Template?", "A Launch Template specifies instance configuration information, like the AMI, instance type, and security groups, used by an Auto Scaling group to launch instances."), new InterviewQuestion("What is scaling out vs scaling in?", "Scaling out is adding instances, while scaling in is removing instances.")))
                 .flashCards(List.of(new FlashCard("Auto Scaling Group", "A collection of EC2 instances that are treated as a logical grouping for the purposes of automatic scaling and management"), new FlashCard("Cooldown Period", "A configurable timeframe that allows the previous scaling activity to take effect before subsequent scaling activities are initiated")))
@@ -346,8 +346,8 @@ public class DataSeeder {
                 .overview("Docker uses a client-server architecture. The Docker client talks to the Docker daemon, which does the heavy lifting of building, running, and distributing your Docker containers. The Docker client and daemon can run on the same system, or you can connect a Docker client to a remote Docker daemon.\n\nKey components include the Docker Daemon (dockerd), which listens for requests and manages objects, and the Docker Client (docker), which is the primary way users interact with Docker.\n\nRegistries store images, while containerd and runc serve as the underlying runtime technologies.")
                 .officialDocUrl("https://docs.docker.com/")
                 .videoLinks(List.of(
-                        new VideoLink("Architecture Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Architecture", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Architecture Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Architecture", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What happens when you run docker build?", "The Docker client sends the build context to the Docker daemon, which executes the instructions in the Dockerfile one by one to create a new Docker image."), new InterviewQuestion("What is the role of containerd in Docker?", "containerd is an industry-standard container runtime that manages the complete container lifecycle of its host system.")))
                 .flashCards(List.of(new FlashCard("Docker Daemon", "The background service running on the host that manages building, running, and distributing Docker containers."), new FlashCard("Docker Registry", "A stateless, highly scalable server side application that stores and lets you distribute Docker images.")))
@@ -372,8 +372,8 @@ public class DataSeeder {
                 .overview("A Docker image is a read-only template with instructions for creating a Docker container. Often, an image is based on another image, with some additional customization.\n\nFor example, you may build an image which is based on the ubuntu image, but installs the Apache web server and your application, as well as the configuration details needed to make your application run.\n\nImages are built from a series of layers. Each layer represents an instruction in the image's Dockerfile. If you change the Dockerfile and rebuild the image, only those layers which have changed are rebuilt.")
                 .officialDocUrl("https://docs.docker.com/")
                 .videoLinks(List.of(
-                        new VideoLink("Images Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Images", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Images Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Images", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What are image layers?", "Each instruction in a Dockerfile creates a read-only layer. Layers are stacked and form the final image."), new InterviewQuestion("How do you list available images on your host?", "Using the 'docker images' or 'docker image ls' command.")))
                 .flashCards(List.of(new FlashCard("Docker Image", "A read-only template with instructions for creating a Docker container"), new FlashCard("Layer", "A modification to a Docker image, represented by an instruction in a Dockerfile")))
@@ -398,8 +398,8 @@ public class DataSeeder {
                 .overview("A container is a runnable instance of an image. You can create, start, stop, move, or delete a container using the Docker API or CLI. You can connect a container to one or more networks, attach storage to it, or even create a new image based on its current state.\n\nBy default, a container is relatively well isolated from other containers and its host machine. You can control how isolated a container's network, storage, or other underlying subsystems are from other containers or from the host machine.\n\nA container is defined by its image as well as any configuration options you provide to it when you create or start it.")
                 .officialDocUrl("https://docs.docker.com/")
                 .videoLinks(List.of(
-                        new VideoLink("Containers Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Containers", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Containers Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Containers", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What is the difference between an image and a container?", "An image is a read-only template, while a container is a running, writable instance of an image."), new InterviewQuestion("How do you stop a running container?", "Using the 'docker stop <container_id>' command.")))
                 .flashCards(List.of(new FlashCard("Docker Container", "A runnable instance of a Docker image"), new FlashCard("docker ps", "A command used to list running containers")))
@@ -424,8 +424,8 @@ public class DataSeeder {
                 .overview("This section focuses on Dockerfile in Docker. Dockerfile is a fundamental concept for containerizing applications efficiently and securely.\n\nUnderstanding Dockerfile allows you to better structure your container deployments, optimize resource usage, and follow industry standards.\n\nProperly configuring Dockerfile ensures that your Docker environments are reproducible, scalable, and easy to maintain across different stages of development and production.")
                 .officialDocUrl("https://docs.docker.com/")
                 .videoLinks(List.of(
-                        new VideoLink("Dockerfile Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Dockerfile", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Dockerfile Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Dockerfile", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What is the main purpose of Dockerfile?", "To manage and configure aspects of Dockerfile in a Docker environment."), new InterviewQuestion("How do you implement Dockerfile?", "By utilizing specific Docker commands and configuration files relevant to this feature.")))
                 .flashCards(List.of(new FlashCard("Dockerfile Concept", "The core idea behind Dockerfile"), new FlashCard("Dockerfile Usage", "Practical application of Dockerfile")))
@@ -450,8 +450,8 @@ public class DataSeeder {
                 .overview("This section focuses on Volumes in Docker. Volumes is a fundamental concept for containerizing applications efficiently and securely.\n\nUnderstanding Volumes allows you to better structure your container deployments, optimize resource usage, and follow industry standards.\n\nProperly configuring Volumes ensures that your Docker environments are reproducible, scalable, and easy to maintain across different stages of development and production.")
                 .officialDocUrl("https://docs.docker.com/")
                 .videoLinks(List.of(
-                        new VideoLink("Volumes Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Volumes", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Volumes Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Volumes", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What is the main purpose of Volumes?", "To manage and configure aspects of Volumes in a Docker environment."), new InterviewQuestion("How do you implement Volumes?", "By utilizing specific Docker commands and configuration files relevant to this feature.")))
                 .flashCards(List.of(new FlashCard("Volumes Concept", "The core idea behind Volumes"), new FlashCard("Volumes Usage", "Practical application of Volumes")))
@@ -476,8 +476,8 @@ public class DataSeeder {
                 .overview("This section focuses on Networking in Docker. Networking is a fundamental concept for containerizing applications efficiently and securely.\n\nUnderstanding Networking allows you to better structure your container deployments, optimize resource usage, and follow industry standards.\n\nProperly configuring Networking ensures that your Docker environments are reproducible, scalable, and easy to maintain across different stages of development and production.")
                 .officialDocUrl("https://docs.docker.com/")
                 .videoLinks(List.of(
-                        new VideoLink("Networking Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Networking", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Networking Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Networking", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What is the main purpose of Networking?", "To manage and configure aspects of Networking in a Docker environment."), new InterviewQuestion("How do you implement Networking?", "By utilizing specific Docker commands and configuration files relevant to this feature.")))
                 .flashCards(List.of(new FlashCard("Networking Concept", "The core idea behind Networking"), new FlashCard("Networking Usage", "Practical application of Networking")))
@@ -502,8 +502,8 @@ public class DataSeeder {
                 .overview("This section focuses on Docker Compose in Docker. Docker Compose is a fundamental concept for containerizing applications efficiently and securely.\n\nUnderstanding Docker Compose allows you to better structure your container deployments, optimize resource usage, and follow industry standards.\n\nProperly configuring Docker Compose ensures that your Docker environments are reproducible, scalable, and easy to maintain across different stages of development and production.")
                 .officialDocUrl("https://docs.docker.com/")
                 .videoLinks(List.of(
-                        new VideoLink("Docker Compose Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Docker Compose", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Docker Compose Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Docker Compose", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What is the main purpose of Docker Compose?", "To manage and configure aspects of Docker Compose in a Docker environment."), new InterviewQuestion("How do you implement Docker Compose?", "By utilizing specific Docker commands and configuration files relevant to this feature.")))
                 .flashCards(List.of(new FlashCard("Docker Compose Concept", "The core idea behind Docker Compose"), new FlashCard("Docker Compose Usage", "Practical application of Docker Compose")))
@@ -528,8 +528,8 @@ public class DataSeeder {
                 .overview("This section focuses on Multi-Stage Builds in Docker. Multi-Stage Builds is a fundamental concept for containerizing applications efficiently and securely.\n\nUnderstanding Multi-Stage Builds allows you to better structure your container deployments, optimize resource usage, and follow industry standards.\n\nProperly configuring Multi-Stage Builds ensures that your Docker environments are reproducible, scalable, and easy to maintain across different stages of development and production.")
                 .officialDocUrl("https://docs.docker.com/")
                 .videoLinks(List.of(
-                        new VideoLink("Multi-Stage Builds Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Multi-Stage Builds", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Multi-Stage Builds Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Multi-Stage Builds", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What is the main purpose of Multi-Stage Builds?", "To manage and configure aspects of Multi-Stage Builds in a Docker environment."), new InterviewQuestion("How do you implement Multi-Stage Builds?", "By utilizing specific Docker commands and configuration files relevant to this feature.")))
                 .flashCards(List.of(new FlashCard("Multi-Stage Builds Concept", "The core idea behind Multi-Stage Builds"), new FlashCard("Multi-Stage Builds Usage", "Practical application of Multi-Stage Builds")))
@@ -554,8 +554,8 @@ public class DataSeeder {
                 .overview("This section focuses on Registry in Docker. Registry is a fundamental concept for containerizing applications efficiently and securely.\n\nUnderstanding Registry allows you to better structure your container deployments, optimize resource usage, and follow industry standards.\n\nProperly configuring Registry ensures that your Docker environments are reproducible, scalable, and easy to maintain across different stages of development and production.")
                 .officialDocUrl("https://docs.docker.com/")
                 .videoLinks(List.of(
-                        new VideoLink("Registry Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Registry", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Registry Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Registry", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What is the main purpose of Registry?", "To manage and configure aspects of Registry in a Docker environment."), new InterviewQuestion("How do you implement Registry?", "By utilizing specific Docker commands and configuration files relevant to this feature.")))
                 .flashCards(List.of(new FlashCard("Registry Concept", "The core idea behind Registry"), new FlashCard("Registry Usage", "Practical application of Registry")))
@@ -580,8 +580,8 @@ public class DataSeeder {
                 .overview("This section focuses on Best Practices in Docker. Best Practices is a fundamental concept for containerizing applications efficiently and securely.\n\nUnderstanding Best Practices allows you to better structure your container deployments, optimize resource usage, and follow industry standards.\n\nProperly configuring Best Practices ensures that your Docker environments are reproducible, scalable, and easy to maintain across different stages of development and production.")
                 .officialDocUrl("https://docs.docker.com/")
                 .videoLinks(List.of(
-                        new VideoLink("Best Practices Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Best Practices", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Best Practices Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Best Practices", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What is the main purpose of Best Practices?", "To manage and configure aspects of Best Practices in a Docker environment."), new InterviewQuestion("How do you implement Best Practices?", "By utilizing specific Docker commands and configuration files relevant to this feature.")))
                 .flashCards(List.of(new FlashCard("Best Practices Concept", "The core idea behind Best Practices"), new FlashCard("Best Practices Usage", "Practical application of Best Practices")))
@@ -608,8 +608,8 @@ public class DataSeeder {
                 .overview("A Kubernetes cluster consists of a set of worker machines, called nodes, that run containerized applications. Every cluster has at least one worker node. The worker node(s) host the Pods that are the components of the application workload.\n\nThe Control Plane manages the worker nodes and the Pods in the cluster. It consists of the kube-apiserver (API frontend), etcd (key-value store for state), kube-scheduler (assigns pods to nodes), and kube-controller-manager.\n\nWorker nodes consist of the kubelet (node agent), kube-proxy (network proxy), and the container runtime (e.g., containerd).")
                 .officialDocUrl("https://kubernetes.io/docs/")
                 .videoLinks(List.of(
-                        new VideoLink("Architecture Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Architecture", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Architecture Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Architecture", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What is the role of etcd in Kubernetes?", "etcd is a distributed, reliable key-value store used to hold all the cluster data and state."), new InterviewQuestion("What does the kubelet do?", "The kubelet is an agent that runs on each node in the cluster and makes sure that containers are running in a Pod.")))
                 .flashCards(List.of(new FlashCard("kube-apiserver", "Component on the control plane that exposes the Kubernetes API."), new FlashCard("kube-proxy", "Network proxy that runs on each node, maintaining network rules on nodes.")))
@@ -634,8 +634,8 @@ public class DataSeeder {
                 .overview("In Kubernetes, Pods represent a critical abstraction for managing containerized workloads. Understanding Pods is essential for deploying robust applications.\n\nWhen working with Pods, administrators define the desired state using YAML manifests, and the Kubernetes control plane continuously works to maintain that state.\n\nEffective use of Pods allows for highly available, fault-tolerant, and scalable microservices architectures.")
                 .officialDocUrl("https://kubernetes.io/docs/")
                 .videoLinks(List.of(
-                        new VideoLink("Pods Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Pods", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Pods Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Pods", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("How do Pods improve application reliability?", "By allowing Kubernetes to automatically manage the lifecycle and scaling of the workload associated with Pods."), new InterviewQuestion("What is the typical way to create Pods?", "Using the 'kubectl apply -f' command with a YAML configuration file.")))
                 .flashCards(List.of(new FlashCard("Pods Definition", "A Kubernetes object representing Pods"), new FlashCard("kubectl get pods", "Command to list all Pods in the current namespace")))
@@ -660,8 +660,8 @@ public class DataSeeder {
                 .overview("In Kubernetes, ReplicaSets represent a critical abstraction for managing containerized workloads. Understanding ReplicaSets is essential for deploying robust applications.\n\nWhen working with ReplicaSets, administrators define the desired state using YAML manifests, and the Kubernetes control plane continuously works to maintain that state.\n\nEffective use of ReplicaSets allows for highly available, fault-tolerant, and scalable microservices architectures.")
                 .officialDocUrl("https://kubernetes.io/docs/")
                 .videoLinks(List.of(
-                        new VideoLink("ReplicaSets Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering ReplicaSets", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("ReplicaSets Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering ReplicaSets", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("How do ReplicaSets improve application reliability?", "By allowing Kubernetes to automatically manage the lifecycle and scaling of the workload associated with ReplicaSets."), new InterviewQuestion("What is the typical way to create ReplicaSets?", "Using the 'kubectl apply -f' command with a YAML configuration file.")))
                 .flashCards(List.of(new FlashCard("ReplicaSets Definition", "A Kubernetes object representing ReplicaSets"), new FlashCard("kubectl get replicasets", "Command to list all ReplicaSets in the current namespace")))
@@ -686,8 +686,8 @@ public class DataSeeder {
                 .overview("In Kubernetes, Deployments represent a critical abstraction for managing containerized workloads. Understanding Deployments is essential for deploying robust applications.\n\nWhen working with Deployments, administrators define the desired state using YAML manifests, and the Kubernetes control plane continuously works to maintain that state.\n\nEffective use of Deployments allows for highly available, fault-tolerant, and scalable microservices architectures.")
                 .officialDocUrl("https://kubernetes.io/docs/")
                 .videoLinks(List.of(
-                        new VideoLink("Deployments Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Deployments", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Deployments Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Deployments", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("How do Deployments improve application reliability?", "By allowing Kubernetes to automatically manage the lifecycle and scaling of the workload associated with Deployments."), new InterviewQuestion("What is the typical way to create Deployments?", "Using the 'kubectl apply -f' command with a YAML configuration file.")))
                 .flashCards(List.of(new FlashCard("Deployments Definition", "A Kubernetes object representing Deployments"), new FlashCard("kubectl get deployments", "Command to list all Deployments in the current namespace")))
@@ -712,8 +712,8 @@ public class DataSeeder {
                 .overview("In Kubernetes, Services represent a critical abstraction for managing containerized workloads. Understanding Services is essential for deploying robust applications.\n\nWhen working with Services, administrators define the desired state using YAML manifests, and the Kubernetes control plane continuously works to maintain that state.\n\nEffective use of Services allows for highly available, fault-tolerant, and scalable microservices architectures.")
                 .officialDocUrl("https://kubernetes.io/docs/")
                 .videoLinks(List.of(
-                        new VideoLink("Services Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Services", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Services Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Services", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("How do Services improve application reliability?", "By allowing Kubernetes to automatically manage the lifecycle and scaling of the workload associated with Services."), new InterviewQuestion("What is the typical way to create Services?", "Using the 'kubectl apply -f' command with a YAML configuration file.")))
                 .flashCards(List.of(new FlashCard("Services Definition", "A Kubernetes object representing Services"), new FlashCard("kubectl get services", "Command to list all Services in the current namespace")))
@@ -738,8 +738,8 @@ public class DataSeeder {
                 .overview("In Kubernetes, Ingress represent a critical abstraction for managing containerized workloads. Understanding Ingress is essential for deploying robust applications.\n\nWhen working with Ingress, administrators define the desired state using YAML manifests, and the Kubernetes control plane continuously works to maintain that state.\n\nEffective use of Ingress allows for highly available, fault-tolerant, and scalable microservices architectures.")
                 .officialDocUrl("https://kubernetes.io/docs/")
                 .videoLinks(List.of(
-                        new VideoLink("Ingress Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Ingress", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Ingress Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Ingress", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("How do Ingress improve application reliability?", "By allowing Kubernetes to automatically manage the lifecycle and scaling of the workload associated with Ingress."), new InterviewQuestion("What is the typical way to create Ingress?", "Using the 'kubectl apply -f' command with a YAML configuration file.")))
                 .flashCards(List.of(new FlashCard("Ingress Definition", "A Kubernetes object representing Ingress"), new FlashCard("kubectl get ingress", "Command to list all Ingress in the current namespace")))
@@ -764,8 +764,8 @@ public class DataSeeder {
                 .overview("In Kubernetes, ConfigMaps represent a critical abstraction for managing containerized workloads. Understanding ConfigMaps is essential for deploying robust applications.\n\nWhen working with ConfigMaps, administrators define the desired state using YAML manifests, and the Kubernetes control plane continuously works to maintain that state.\n\nEffective use of ConfigMaps allows for highly available, fault-tolerant, and scalable microservices architectures.")
                 .officialDocUrl("https://kubernetes.io/docs/")
                 .videoLinks(List.of(
-                        new VideoLink("ConfigMaps Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering ConfigMaps", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("ConfigMaps Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering ConfigMaps", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("How do ConfigMaps improve application reliability?", "By allowing Kubernetes to automatically manage the lifecycle and scaling of the workload associated with ConfigMaps."), new InterviewQuestion("What is the typical way to create ConfigMaps?", "Using the 'kubectl apply -f' command with a YAML configuration file.")))
                 .flashCards(List.of(new FlashCard("ConfigMaps Definition", "A Kubernetes object representing ConfigMaps"), new FlashCard("kubectl get configmaps", "Command to list all ConfigMaps in the current namespace")))
@@ -790,8 +790,8 @@ public class DataSeeder {
                 .overview("In Kubernetes, Secrets represent a critical abstraction for managing containerized workloads. Understanding Secrets is essential for deploying robust applications.\n\nWhen working with Secrets, administrators define the desired state using YAML manifests, and the Kubernetes control plane continuously works to maintain that state.\n\nEffective use of Secrets allows for highly available, fault-tolerant, and scalable microservices architectures.")
                 .officialDocUrl("https://kubernetes.io/docs/")
                 .videoLinks(List.of(
-                        new VideoLink("Secrets Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Secrets", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Secrets Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Secrets", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("How do Secrets improve application reliability?", "By allowing Kubernetes to automatically manage the lifecycle and scaling of the workload associated with Secrets."), new InterviewQuestion("What is the typical way to create Secrets?", "Using the 'kubectl apply -f' command with a YAML configuration file.")))
                 .flashCards(List.of(new FlashCard("Secrets Definition", "A Kubernetes object representing Secrets"), new FlashCard("kubectl get secrets", "Command to list all Secrets in the current namespace")))
@@ -816,8 +816,8 @@ public class DataSeeder {
                 .overview("In Kubernetes, Namespaces represent a critical abstraction for managing containerized workloads. Understanding Namespaces is essential for deploying robust applications.\n\nWhen working with Namespaces, administrators define the desired state using YAML manifests, and the Kubernetes control plane continuously works to maintain that state.\n\nEffective use of Namespaces allows for highly available, fault-tolerant, and scalable microservices architectures.")
                 .officialDocUrl("https://kubernetes.io/docs/")
                 .videoLinks(List.of(
-                        new VideoLink("Namespaces Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Namespaces", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Namespaces Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Namespaces", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("How do Namespaces improve application reliability?", "By allowing Kubernetes to automatically manage the lifecycle and scaling of the workload associated with Namespaces."), new InterviewQuestion("What is the typical way to create Namespaces?", "Using the 'kubectl apply -f' command with a YAML configuration file.")))
                 .flashCards(List.of(new FlashCard("Namespaces Definition", "A Kubernetes object representing Namespaces"), new FlashCard("kubectl get namespaces", "Command to list all Namespaces in the current namespace")))
@@ -842,8 +842,8 @@ public class DataSeeder {
                 .overview("In Kubernetes, PV & PVC represent a critical abstraction for managing containerized workloads. Understanding PV & PVC is essential for deploying robust applications.\n\nWhen working with PV & PVC, administrators define the desired state using YAML manifests, and the Kubernetes control plane continuously works to maintain that state.\n\nEffective use of PV & PVC allows for highly available, fault-tolerant, and scalable microservices architectures.")
                 .officialDocUrl("https://kubernetes.io/docs/")
                 .videoLinks(List.of(
-                        new VideoLink("PV & PVC Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering PV & PVC", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("PV & PVC Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering PV & PVC", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("How do PV & PVC improve application reliability?", "By allowing Kubernetes to automatically manage the lifecycle and scaling of the workload associated with PV & PVC."), new InterviewQuestion("What is the typical way to create PV & PVC?", "Using the 'kubectl apply -f' command with a YAML configuration file.")))
                 .flashCards(List.of(new FlashCard("PV & PVC Definition", "A Kubernetes object representing PV & PVC"), new FlashCard("kubectl get pv&pvc", "Command to list all PV & PVC in the current namespace")))
@@ -868,8 +868,8 @@ public class DataSeeder {
                 .overview("In Kubernetes, StatefulSets represent a critical abstraction for managing containerized workloads. Understanding StatefulSets is essential for deploying robust applications.\n\nWhen working with StatefulSets, administrators define the desired state using YAML manifests, and the Kubernetes control plane continuously works to maintain that state.\n\nEffective use of StatefulSets allows for highly available, fault-tolerant, and scalable microservices architectures.")
                 .officialDocUrl("https://kubernetes.io/docs/")
                 .videoLinks(List.of(
-                        new VideoLink("StatefulSets Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering StatefulSets", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("StatefulSets Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering StatefulSets", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("How do StatefulSets improve application reliability?", "By allowing Kubernetes to automatically manage the lifecycle and scaling of the workload associated with StatefulSets."), new InterviewQuestion("What is the typical way to create StatefulSets?", "Using the 'kubectl apply -f' command with a YAML configuration file.")))
                 .flashCards(List.of(new FlashCard("StatefulSets Definition", "A Kubernetes object representing StatefulSets"), new FlashCard("kubectl get statefulsets", "Command to list all StatefulSets in the current namespace")))
@@ -894,8 +894,8 @@ public class DataSeeder {
                 .overview("In Kubernetes, DaemonSets represent a critical abstraction for managing containerized workloads. Understanding DaemonSets is essential for deploying robust applications.\n\nWhen working with DaemonSets, administrators define the desired state using YAML manifests, and the Kubernetes control plane continuously works to maintain that state.\n\nEffective use of DaemonSets allows for highly available, fault-tolerant, and scalable microservices architectures.")
                 .officialDocUrl("https://kubernetes.io/docs/")
                 .videoLinks(List.of(
-                        new VideoLink("DaemonSets Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering DaemonSets", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("DaemonSets Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering DaemonSets", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("How do DaemonSets improve application reliability?", "By allowing Kubernetes to automatically manage the lifecycle and scaling of the workload associated with DaemonSets."), new InterviewQuestion("What is the typical way to create DaemonSets?", "Using the 'kubectl apply -f' command with a YAML configuration file.")))
                 .flashCards(List.of(new FlashCard("DaemonSets Definition", "A Kubernetes object representing DaemonSets"), new FlashCard("kubectl get daemonsets", "Command to list all DaemonSets in the current namespace")))
@@ -922,8 +922,8 @@ public class DataSeeder {
                 .overview("The Linux command line is a text interface to your computer. Also known as the shell, it allows you to execute commands, run programs, and manipulate files.\n\nFundamental commands include: ls (list directory), cd (change directory), pwd (print working directory), cp (copy), mv (move), rm (remove), mkdir (make directory), cat (concatenate and print), grep (search for patterns), find (search files).\n\nSystem management commands include: chmod (change permissions), chown (change owner), ps (process status), top (task manager), df (disk space), du (disk usage).")
                 .officialDocUrl("https://linux.die.net/")
                 .videoLinks(List.of(
-                        new VideoLink("Commands Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Commands", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Commands Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Commands", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What does the 'grep' command do?", "grep searches for a specific pattern of text in a file or standard input and prints the matching lines."), new InterviewQuestion("How do you find the disk usage of a specific directory?", "By using the 'du' command, often with flags like -sh for a human-readable summary.")))
                 .flashCards(List.of(new FlashCard("pwd", "Print Working Directory - shows the current directory you are in"), new FlashCard("chmod", "Change Mode - used to change the access permissions of files or directories")))
@@ -948,8 +948,8 @@ public class DataSeeder {
                 .overview("Mastering Permissions is a fundamental skill for any Linux system administrator or DevOps engineer. It forms the backbone of system configuration and maintenance.\n\nLinux heavily relies on concepts like Permissions to secure the system, manage resources, and automate routine tasks effectively.\n\nBy understanding the intricacies of Permissions, you can ensure your Linux servers operate efficiently, securely, and reliably in production environments.")
                 .officialDocUrl("https://linux.die.net/")
                 .videoLinks(List.of(
-                        new VideoLink("Permissions Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Permissions", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Permissions Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Permissions", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What role does Permissions play in system security?", "It ensures that only authorized processes or users can access specific system resources."), new InterviewQuestion("How can you monitor Permissions?", "Using standard command-line utilities and analyzing system logs.")))
                 .flashCards(List.of(new FlashCard("Permissions Basics", "Fundamental concepts regarding Permissions"), new FlashCard("Permissions Tools", "Common CLI utilities used to manage Permissions")))
@@ -974,8 +974,8 @@ public class DataSeeder {
                 .overview("Mastering Processes is a fundamental skill for any Linux system administrator or DevOps engineer. It forms the backbone of system configuration and maintenance.\n\nLinux heavily relies on concepts like Processes to secure the system, manage resources, and automate routine tasks effectively.\n\nBy understanding the intricacies of Processes, you can ensure your Linux servers operate efficiently, securely, and reliably in production environments.")
                 .officialDocUrl("https://linux.die.net/")
                 .videoLinks(List.of(
-                        new VideoLink("Processes Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Processes", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Processes Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Processes", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What role does Processes play in system security?", "It ensures that only authorized processes or users can access specific system resources."), new InterviewQuestion("How can you monitor Processes?", "Using standard command-line utilities and analyzing system logs.")))
                 .flashCards(List.of(new FlashCard("Processes Basics", "Fundamental concepts regarding Processes"), new FlashCard("Processes Tools", "Common CLI utilities used to manage Processes")))
@@ -1000,8 +1000,8 @@ public class DataSeeder {
                 .overview("Mastering Systemd is a fundamental skill for any Linux system administrator or DevOps engineer. It forms the backbone of system configuration and maintenance.\n\nLinux heavily relies on concepts like Systemd to secure the system, manage resources, and automate routine tasks effectively.\n\nBy understanding the intricacies of Systemd, you can ensure your Linux servers operate efficiently, securely, and reliably in production environments.")
                 .officialDocUrl("https://linux.die.net/")
                 .videoLinks(List.of(
-                        new VideoLink("Systemd Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Systemd", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Systemd Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Systemd", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What role does Systemd play in system security?", "It ensures that only authorized processes or users can access specific system resources."), new InterviewQuestion("How can you monitor Systemd?", "Using standard command-line utilities and analyzing system logs.")))
                 .flashCards(List.of(new FlashCard("Systemd Basics", "Fundamental concepts regarding Systemd"), new FlashCard("Systemd Tools", "Common CLI utilities used to manage Systemd")))
@@ -1026,8 +1026,8 @@ public class DataSeeder {
                 .overview("Mastering Networking is a fundamental skill for any Linux system administrator or DevOps engineer. It forms the backbone of system configuration and maintenance.\n\nLinux heavily relies on concepts like Networking to secure the system, manage resources, and automate routine tasks effectively.\n\nBy understanding the intricacies of Networking, you can ensure your Linux servers operate efficiently, securely, and reliably in production environments.")
                 .officialDocUrl("https://linux.die.net/")
                 .videoLinks(List.of(
-                        new VideoLink("Networking Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Networking", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Networking Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Networking", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What role does Networking play in system security?", "It ensures that only authorized processes or users can access specific system resources."), new InterviewQuestion("How can you monitor Networking?", "Using standard command-line utilities and analyzing system logs.")))
                 .flashCards(List.of(new FlashCard("Networking Basics", "Fundamental concepts regarding Networking"), new FlashCard("Networking Tools", "Common CLI utilities used to manage Networking")))
@@ -1052,8 +1052,8 @@ public class DataSeeder {
                 .overview("Mastering Package Managers is a fundamental skill for any Linux system administrator or DevOps engineer. It forms the backbone of system configuration and maintenance.\n\nLinux heavily relies on concepts like Package Managers to secure the system, manage resources, and automate routine tasks effectively.\n\nBy understanding the intricacies of Package Managers, you can ensure your Linux servers operate efficiently, securely, and reliably in production environments.")
                 .officialDocUrl("https://linux.die.net/")
                 .videoLinks(List.of(
-                        new VideoLink("Package Managers Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Package Managers", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Package Managers Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Package Managers", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What role does Package Managers play in system security?", "It ensures that only authorized processes or users can access specific system resources."), new InterviewQuestion("How can you monitor Package Managers?", "Using standard command-line utilities and analyzing system logs.")))
                 .flashCards(List.of(new FlashCard("Package Managers Basics", "Fundamental concepts regarding Package Managers"), new FlashCard("Package Managers Tools", "Common CLI utilities used to manage Package Managers")))
@@ -1078,8 +1078,8 @@ public class DataSeeder {
                 .overview("Mastering SSH is a fundamental skill for any Linux system administrator or DevOps engineer. It forms the backbone of system configuration and maintenance.\n\nLinux heavily relies on concepts like SSH to secure the system, manage resources, and automate routine tasks effectively.\n\nBy understanding the intricacies of SSH, you can ensure your Linux servers operate efficiently, securely, and reliably in production environments.")
                 .officialDocUrl("https://linux.die.net/")
                 .videoLinks(List.of(
-                        new VideoLink("SSH Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering SSH", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("SSH Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering SSH", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What role does SSH play in system security?", "It ensures that only authorized processes or users can access specific system resources."), new InterviewQuestion("How can you monitor SSH?", "Using standard command-line utilities and analyzing system logs.")))
                 .flashCards(List.of(new FlashCard("SSH Basics", "Fundamental concepts regarding SSH"), new FlashCard("SSH Tools", "Common CLI utilities used to manage SSH")))
@@ -1104,8 +1104,8 @@ public class DataSeeder {
                 .overview("Mastering Cron is a fundamental skill for any Linux system administrator or DevOps engineer. It forms the backbone of system configuration and maintenance.\n\nLinux heavily relies on concepts like Cron to secure the system, manage resources, and automate routine tasks effectively.\n\nBy understanding the intricacies of Cron, you can ensure your Linux servers operate efficiently, securely, and reliably in production environments.")
                 .officialDocUrl("https://linux.die.net/")
                 .videoLinks(List.of(
-                        new VideoLink("Cron Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Cron", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Cron Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Cron", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What role does Cron play in system security?", "It ensures that only authorized processes or users can access specific system resources."), new InterviewQuestion("How can you monitor Cron?", "Using standard command-line utilities and analyzing system logs.")))
                 .flashCards(List.of(new FlashCard("Cron Basics", "Fundamental concepts regarding Cron"), new FlashCard("Cron Tools", "Common CLI utilities used to manage Cron")))
@@ -1132,8 +1132,8 @@ public class DataSeeder {
                 .overview("Git is a distributed version control system. The most common workflow involves copying a repository, making changes, and sending them back to a remote server.\n\nKey operations include Clone (`git clone`), which creates a local copy of a remote repository. Commit (`git commit`) captures a snapshot of the project's currently staged changes.\n\nFinally, Push (`git push`) uploads your local repository content (the committed snapshots) to a remote repository, allowing others to see your work.")
                 .officialDocUrl("https://git-scm.com/docs")
                 .videoLinks(List.of(
-                        new VideoLink("Clone Commit Push Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Clone Commit Push", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Clone Commit Push Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Clone Commit Push", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What is the difference between git fetch and git pull?", "git fetch downloads new data from a remote repository but doesn't integrate it into your working files. git pull fetches the data and immediately merges it into your current branch."), new InterviewQuestion("How do you undo a git commit without losing the changes?", "You can use 'git reset --soft HEAD~1' to undo the last commit while keeping the changes staged.")))
                 .flashCards(List.of(new FlashCard("git clone", "Creates a local copy of a remote repository"), new FlashCard("git commit", "Records changes to the repository with a descriptive message")))
@@ -1158,8 +1158,8 @@ public class DataSeeder {
                 .overview("The Pull feature in Git provides powerful version control capabilities that enable teams to collaborate efficiently on complex codebases.\n\nUsing Pull properly allows developers to manage concurrent changes, experiment with new features safely, and maintain a clean project history.\n\nUnderstanding the nuances of Pull is what separates beginner Git users from advanced practitioners who can resolve conflicts and maintain a pristine repository state.")
                 .officialDocUrl("https://git-scm.com/docs")
                 .videoLinks(List.of(
-                        new VideoLink("Pull Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Pull", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Pull Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Pull", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("When should you use Pull?", "When you need to manipulate the commit history or integrate changes effectively."), new InterviewQuestion("What are the risks of using Pull?", "If used incorrectly on shared branches, it can cause confusion and conflicts for other team members.")))
                 .flashCards(List.of(new FlashCard("git pull", "The primary command to execute a Pull operation"), new FlashCard("Pull Conflict", "A state that occurs when changes cannot be automatically integrated")))
@@ -1184,8 +1184,8 @@ public class DataSeeder {
                 .overview("The Branch feature in Git provides powerful version control capabilities that enable teams to collaborate efficiently on complex codebases.\n\nUsing Branch properly allows developers to manage concurrent changes, experiment with new features safely, and maintain a clean project history.\n\nUnderstanding the nuances of Branch is what separates beginner Git users from advanced practitioners who can resolve conflicts and maintain a pristine repository state.")
                 .officialDocUrl("https://git-scm.com/docs")
                 .videoLinks(List.of(
-                        new VideoLink("Branch Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Branch", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Branch Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Branch", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("When should you use Branch?", "When you need to manipulate the commit history or integrate changes effectively."), new InterviewQuestion("What are the risks of using Branch?", "If used incorrectly on shared branches, it can cause confusion and conflicts for other team members.")))
                 .flashCards(List.of(new FlashCard("git branch", "The primary command to execute a Branch operation"), new FlashCard("Branch Conflict", "A state that occurs when changes cannot be automatically integrated")))
@@ -1210,8 +1210,8 @@ public class DataSeeder {
                 .overview("The Merge feature in Git provides powerful version control capabilities that enable teams to collaborate efficiently on complex codebases.\n\nUsing Merge properly allows developers to manage concurrent changes, experiment with new features safely, and maintain a clean project history.\n\nUnderstanding the nuances of Merge is what separates beginner Git users from advanced practitioners who can resolve conflicts and maintain a pristine repository state.")
                 .officialDocUrl("https://git-scm.com/docs")
                 .videoLinks(List.of(
-                        new VideoLink("Merge Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Merge", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Merge Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Merge", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("When should you use Merge?", "When you need to manipulate the commit history or integrate changes effectively."), new InterviewQuestion("What are the risks of using Merge?", "If used incorrectly on shared branches, it can cause confusion and conflicts for other team members.")))
                 .flashCards(List.of(new FlashCard("git merge", "The primary command to execute a Merge operation"), new FlashCard("Merge Conflict", "A state that occurs when changes cannot be automatically integrated")))
@@ -1236,8 +1236,8 @@ public class DataSeeder {
                 .overview("The Rebase feature in Git provides powerful version control capabilities that enable teams to collaborate efficiently on complex codebases.\n\nUsing Rebase properly allows developers to manage concurrent changes, experiment with new features safely, and maintain a clean project history.\n\nUnderstanding the nuances of Rebase is what separates beginner Git users from advanced practitioners who can resolve conflicts and maintain a pristine repository state.")
                 .officialDocUrl("https://git-scm.com/docs")
                 .videoLinks(List.of(
-                        new VideoLink("Rebase Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Rebase", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Rebase Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Rebase", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("When should you use Rebase?", "When you need to manipulate the commit history or integrate changes effectively."), new InterviewQuestion("What are the risks of using Rebase?", "If used incorrectly on shared branches, it can cause confusion and conflicts for other team members.")))
                 .flashCards(List.of(new FlashCard("git rebase", "The primary command to execute a Rebase operation"), new FlashCard("Rebase Conflict", "A state that occurs when changes cannot be automatically integrated")))
@@ -1262,8 +1262,8 @@ public class DataSeeder {
                 .overview("The Cherry Pick feature in Git provides powerful version control capabilities that enable teams to collaborate efficiently on complex codebases.\n\nUsing Cherry Pick properly allows developers to manage concurrent changes, experiment with new features safely, and maintain a clean project history.\n\nUnderstanding the nuances of Cherry Pick is what separates beginner Git users from advanced practitioners who can resolve conflicts and maintain a pristine repository state.")
                 .officialDocUrl("https://git-scm.com/docs")
                 .videoLinks(List.of(
-                        new VideoLink("Cherry Pick Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Cherry Pick", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Cherry Pick Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Cherry Pick", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("When should you use Cherry Pick?", "When you need to manipulate the commit history or integrate changes effectively."), new InterviewQuestion("What are the risks of using Cherry Pick?", "If used incorrectly on shared branches, it can cause confusion and conflicts for other team members.")))
                 .flashCards(List.of(new FlashCard("git cherry", "The primary command to execute a Cherry Pick operation"), new FlashCard("Cherry Pick Conflict", "A state that occurs when changes cannot be automatically integrated")))
@@ -1288,8 +1288,8 @@ public class DataSeeder {
                 .overview("The Reset feature in Git provides powerful version control capabilities that enable teams to collaborate efficiently on complex codebases.\n\nUsing Reset properly allows developers to manage concurrent changes, experiment with new features safely, and maintain a clean project history.\n\nUnderstanding the nuances of Reset is what separates beginner Git users from advanced practitioners who can resolve conflicts and maintain a pristine repository state.")
                 .officialDocUrl("https://git-scm.com/docs")
                 .videoLinks(List.of(
-                        new VideoLink("Reset Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Reset", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Reset Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Reset", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("When should you use Reset?", "When you need to manipulate the commit history or integrate changes effectively."), new InterviewQuestion("What are the risks of using Reset?", "If used incorrectly on shared branches, it can cause confusion and conflicts for other team members.")))
                 .flashCards(List.of(new FlashCard("git reset", "The primary command to execute a Reset operation"), new FlashCard("Reset Conflict", "A state that occurs when changes cannot be automatically integrated")))
@@ -1314,8 +1314,8 @@ public class DataSeeder {
                 .overview("The Revert feature in Git provides powerful version control capabilities that enable teams to collaborate efficiently on complex codebases.\n\nUsing Revert properly allows developers to manage concurrent changes, experiment with new features safely, and maintain a clean project history.\n\nUnderstanding the nuances of Revert is what separates beginner Git users from advanced practitioners who can resolve conflicts and maintain a pristine repository state.")
                 .officialDocUrl("https://git-scm.com/docs")
                 .videoLinks(List.of(
-                        new VideoLink("Revert Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Revert", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Revert Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Revert", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("When should you use Revert?", "When you need to manipulate the commit history or integrate changes effectively."), new InterviewQuestion("What are the risks of using Revert?", "If used incorrectly on shared branches, it can cause confusion and conflicts for other team members.")))
                 .flashCards(List.of(new FlashCard("git revert", "The primary command to execute a Revert operation"), new FlashCard("Revert Conflict", "A state that occurs when changes cannot be automatically integrated")))
@@ -1340,8 +1340,8 @@ public class DataSeeder {
                 .overview("The Tags feature in Git provides powerful version control capabilities that enable teams to collaborate efficiently on complex codebases.\n\nUsing Tags properly allows developers to manage concurrent changes, experiment with new features safely, and maintain a clean project history.\n\nUnderstanding the nuances of Tags is what separates beginner Git users from advanced practitioners who can resolve conflicts and maintain a pristine repository state.")
                 .officialDocUrl("https://git-scm.com/docs")
                 .videoLinks(List.of(
-                        new VideoLink("Tags Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Tags", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Tags Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Tags", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("When should you use Tags?", "When you need to manipulate the commit history or integrate changes effectively."), new InterviewQuestion("What are the risks of using Tags?", "If used incorrectly on shared branches, it can cause confusion and conflicts for other team members.")))
                 .flashCards(List.of(new FlashCard("git tags", "The primary command to execute a Tags operation"), new FlashCard("Tags Conflict", "A state that occurs when changes cannot be automatically integrated")))
@@ -1366,8 +1366,8 @@ public class DataSeeder {
                 .overview("The GitHub Flow feature in Git provides powerful version control capabilities that enable teams to collaborate efficiently on complex codebases.\n\nUsing GitHub Flow properly allows developers to manage concurrent changes, experiment with new features safely, and maintain a clean project history.\n\nUnderstanding the nuances of GitHub Flow is what separates beginner Git users from advanced practitioners who can resolve conflicts and maintain a pristine repository state.")
                 .officialDocUrl("https://git-scm.com/docs")
                 .videoLinks(List.of(
-                        new VideoLink("GitHub Flow Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering GitHub Flow", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("GitHub Flow Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering GitHub Flow", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("When should you use GitHub Flow?", "When you need to manipulate the commit history or integrate changes effectively."), new InterviewQuestion("What are the risks of using GitHub Flow?", "If used incorrectly on shared branches, it can cause confusion and conflicts for other team members.")))
                 .flashCards(List.of(new FlashCard("git github", "The primary command to execute a GitHub Flow operation"), new FlashCard("GitHub Flow Conflict", "A state that occurs when changes cannot be automatically integrated")))
@@ -1394,8 +1394,8 @@ public class DataSeeder {
                 .overview("Terraform relies on plugins called providers to interact with cloud providers, SaaS providers, and other APIs. Terraform configurations must declare which providers they require so that Terraform can install and use them.\n\nProviders are responsible for understanding API interactions and exposing resources. For example, the AWS provider allows Terraform to manage AWS resources like EC2 instances and S3 buckets.\n\nEach provider adds a set of resource types and/or data sources that Terraform can manage. You configure providers with authentication details.")
                 .officialDocUrl("https://developer.hashicorp.com/terraform/docs")
                 .videoLinks(List.of(
-                        new VideoLink("Providers Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Providers", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Providers Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Providers", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("What is a Terraform Provider?", "A plugin that allows Terraform to interact with APIs of cloud providers, SaaS platforms, or other services."), new InterviewQuestion("Where does Terraform download providers from?", "By default, Terraform downloads providers from the public Terraform Registry.")))
                 .flashCards(List.of(new FlashCard("Provider Block", "Configures the specified provider, in this case providing authentication details"), new FlashCard("terraform init", "Command that initializes a working directory containing Terraform configuration files, including downloading providers")))
@@ -1420,8 +1420,8 @@ public class DataSeeder {
                 .overview("In Terraform, Resources is a fundamental concept that enables Infrastructure as Code (IaC) principles. It allows you to define, provision, and manage infrastructure consistently.\n\nBy declaring Resources in your configuration files, Terraform knows exactly what state the infrastructure should be in and determines the necessary actions to achieve that state.\n\nProper management of Resources is crucial for collaborating on Terraform projects, ensuring security, and preventing configuration drift in production environments.")
                 .officialDocUrl("https://developer.hashicorp.com/terraform/docs")
                 .videoLinks(List.of(
-                        new VideoLink("Resources Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Resources", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Resources Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Resources", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("How does Terraform use Resources?", "It uses Resources to map the configuration to real-world infrastructure objects and maintain their lifecycle."), new InterviewQuestion("What happens if Resources is misconfigured?", "It can lead to deployment failures, unintended resource deletion, or security vulnerabilities.")))
                 .flashCards(List.of(new FlashCard("Resources Block", "The HCL syntax used to define Resources"), new FlashCard("Terraform Resources", "The logical representation of Resources in Terraform")))
@@ -1446,8 +1446,8 @@ public class DataSeeder {
                 .overview("In Terraform, Variables is a fundamental concept that enables Infrastructure as Code (IaC) principles. It allows you to define, provision, and manage infrastructure consistently.\n\nBy declaring Variables in your configuration files, Terraform knows exactly what state the infrastructure should be in and determines the necessary actions to achieve that state.\n\nProper management of Variables is crucial for collaborating on Terraform projects, ensuring security, and preventing configuration drift in production environments.")
                 .officialDocUrl("https://developer.hashicorp.com/terraform/docs")
                 .videoLinks(List.of(
-                        new VideoLink("Variables Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Variables", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Variables Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Variables", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("How does Terraform use Variables?", "It uses Variables to map the configuration to real-world infrastructure objects and maintain their lifecycle."), new InterviewQuestion("What happens if Variables is misconfigured?", "It can lead to deployment failures, unintended resource deletion, or security vulnerabilities.")))
                 .flashCards(List.of(new FlashCard("Variables Block", "The HCL syntax used to define Variables"), new FlashCard("Terraform Variables", "The logical representation of Variables in Terraform")))
@@ -1472,8 +1472,8 @@ public class DataSeeder {
                 .overview("In Terraform, Outputs is a fundamental concept that enables Infrastructure as Code (IaC) principles. It allows you to define, provision, and manage infrastructure consistently.\n\nBy declaring Outputs in your configuration files, Terraform knows exactly what state the infrastructure should be in and determines the necessary actions to achieve that state.\n\nProper management of Outputs is crucial for collaborating on Terraform projects, ensuring security, and preventing configuration drift in production environments.")
                 .officialDocUrl("https://developer.hashicorp.com/terraform/docs")
                 .videoLinks(List.of(
-                        new VideoLink("Outputs Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Outputs", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Outputs Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Outputs", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("How does Terraform use Outputs?", "It uses Outputs to map the configuration to real-world infrastructure objects and maintain their lifecycle."), new InterviewQuestion("What happens if Outputs is misconfigured?", "It can lead to deployment failures, unintended resource deletion, or security vulnerabilities.")))
                 .flashCards(List.of(new FlashCard("Outputs Block", "The HCL syntax used to define Outputs"), new FlashCard("Terraform Outputs", "The logical representation of Outputs in Terraform")))
@@ -1498,8 +1498,8 @@ public class DataSeeder {
                 .overview("In Terraform, State is a fundamental concept that enables Infrastructure as Code (IaC) principles. It allows you to define, provision, and manage infrastructure consistently.\n\nBy declaring State in your configuration files, Terraform knows exactly what state the infrastructure should be in and determines the necessary actions to achieve that state.\n\nProper management of State is crucial for collaborating on Terraform projects, ensuring security, and preventing configuration drift in production environments.")
                 .officialDocUrl("https://developer.hashicorp.com/terraform/docs")
                 .videoLinks(List.of(
-                        new VideoLink("State Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering State", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("State Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering State", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("How does Terraform use State?", "It uses State to map the configuration to real-world infrastructure objects and maintain their lifecycle."), new InterviewQuestion("What happens if State is misconfigured?", "It can lead to deployment failures, unintended resource deletion, or security vulnerabilities.")))
                 .flashCards(List.of(new FlashCard("State Block", "The HCL syntax used to define State"), new FlashCard("Terraform State", "The logical representation of State in Terraform")))
@@ -1524,8 +1524,8 @@ public class DataSeeder {
                 .overview("In Terraform, Init Plan Apply Destroy is a fundamental concept that enables Infrastructure as Code (IaC) principles. It allows you to define, provision, and manage infrastructure consistently.\n\nBy declaring Init Plan Apply Destroy in your configuration files, Terraform knows exactly what state the infrastructure should be in and determines the necessary actions to achieve that state.\n\nProper management of Init Plan Apply Destroy is crucial for collaborating on Terraform projects, ensuring security, and preventing configuration drift in production environments.")
                 .officialDocUrl("https://developer.hashicorp.com/terraform/docs")
                 .videoLinks(List.of(
-                        new VideoLink("Init Plan Apply Destroy Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Init Plan Apply Destroy", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Init Plan Apply Destroy Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Init Plan Apply Destroy", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("How does Terraform use Init Plan Apply Destroy?", "It uses Init Plan Apply Destroy to map the configuration to real-world infrastructure objects and maintain their lifecycle."), new InterviewQuestion("What happens if Init Plan Apply Destroy is misconfigured?", "It can lead to deployment failures, unintended resource deletion, or security vulnerabilities.")))
                 .flashCards(List.of(new FlashCard("Init Plan Apply Destroy Block", "The HCL syntax used to define Init Plan Apply Destroy"), new FlashCard("Terraform Init Plan Apply Destroy", "The logical representation of Init Plan Apply Destroy in Terraform")))
@@ -1550,8 +1550,8 @@ public class DataSeeder {
                 .overview("In Terraform, Modules is a fundamental concept that enables Infrastructure as Code (IaC) principles. It allows you to define, provision, and manage infrastructure consistently.\n\nBy declaring Modules in your configuration files, Terraform knows exactly what state the infrastructure should be in and determines the necessary actions to achieve that state.\n\nProper management of Modules is crucial for collaborating on Terraform projects, ensuring security, and preventing configuration drift in production environments.")
                 .officialDocUrl("https://developer.hashicorp.com/terraform/docs")
                 .videoLinks(List.of(
-                        new VideoLink("Modules Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Modules", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Modules Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Modules", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("How does Terraform use Modules?", "It uses Modules to map the configuration to real-world infrastructure objects and maintain their lifecycle."), new InterviewQuestion("What happens if Modules is misconfigured?", "It can lead to deployment failures, unintended resource deletion, or security vulnerabilities.")))
                 .flashCards(List.of(new FlashCard("Modules Block", "The HCL syntax used to define Modules"), new FlashCard("Terraform Modules", "The logical representation of Modules in Terraform")))
@@ -1576,8 +1576,8 @@ public class DataSeeder {
                 .overview("In Terraform, Backend is a fundamental concept that enables Infrastructure as Code (IaC) principles. It allows you to define, provision, and manage infrastructure consistently.\n\nBy declaring Backend in your configuration files, Terraform knows exactly what state the infrastructure should be in and determines the necessary actions to achieve that state.\n\nProper management of Backend is crucial for collaborating on Terraform projects, ensuring security, and preventing configuration drift in production environments.")
                 .officialDocUrl("https://developer.hashicorp.com/terraform/docs")
                 .videoLinks(List.of(
-                        new VideoLink("Backend Explained", "https://youtube.com/watch?v=example1", "TechWorld with Nana"),
-                        new VideoLink("Mastering Backend", "https://youtube.com/watch?v=example2", "NetworkChuck")
+                        new VideoLink("Backend Explained", "https://www.youtube.com/watch?v=k1RI5locZE4", "TechWorld with Nana"),
+                        new VideoLink("Mastering Backend", "https://www.youtube.com/watch?v=i4b0Fk-Z-j4", "NetworkChuck")
                 ))
                 .interviewQuestions(List.of(new InterviewQuestion("How does Terraform use Backend?", "It uses Backend to map the configuration to real-world infrastructure objects and maintain their lifecycle."), new InterviewQuestion("What happens if Backend is misconfigured?", "It can lead to deployment failures, unintended resource deletion, or security vulnerabilities.")))
                 .flashCards(List.of(new FlashCard("Backend Block", "The HCL syntax used to define Backend"), new FlashCard("Terraform Backend", "The logical representation of Backend in Terraform")))

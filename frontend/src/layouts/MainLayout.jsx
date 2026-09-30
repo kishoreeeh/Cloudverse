@@ -10,9 +10,9 @@ export default function MainLayout() {
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900">
       <Navbar />
-      <div className="flex flex-1 overflow-hidden">
+      <div className="flex flex-1 min-h-0">
         {showSidebar && <Sidebar />}
-        <main className={`flex-1 overflow-y-auto ${showSidebar ? 'md:ml-64' : 'md:ml-0'} p-6 sm:p-8 lg:p-10 w-full transition-all`}>
+        <main className={`flex-1 ${showSidebar ? 'md:ml-64' : 'md:ml-0'} p-4 sm:p-6 lg:p-8 w-full transition-all`}>
           <div className="max-w-7xl mx-auto">
             <Outlet />
           </div>
