@@ -99,6 +99,7 @@ export default function TechnologyPage() {
 
   // Accordion curriculum modules state (default ALL open so topics are never collapsed away)
   const [openModules, setOpenModules] = useState({ 'mod-1': true, 'mod-2': true, 'mod-3': true });
+  const [isMobileTopicsOpen, setIsMobileTopicsOpen] = useState(false);
 
   const getCurriculumModules = (topics, techSlug) => {
     if (!topics || topics.length === 0) return [];
@@ -357,9 +358,74 @@ export default function TechnologyPage() {
 
       {activeFeatureTab === 'docs' && (
         /* Modern Professional Documentation & Study Page View */
-        <div className="flex flex-col lg:flex-row gap-8 items-start">
-          {/* Left Topics Navigation List (Spacious, Uncollapsed & Searchable) */}
-          <aside className="w-full lg:w-80 xl:w-88 flex-shrink-0 bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-xs space-y-4 sticky top-20">
+        <div className="space-y-4 lg:space-y-0">
+          {/* Mobile Topic Selection Bar (shown on small screens < lg) */}
+          <div className="lg:hidden w-full bg-white border border-slate-200 rounded-xl p-3 shadow-2xs space-y-2">
+            <div className="flex items-center justify-between gap-2">
+              <button
+                onClick={handlePrevTopic}
+                disabled={currentTopicIndex === 0}
+                className="p-1.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-600 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-100 shrink-0"
+                title="Previous Topic"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+
+              <button
+                onClick={() => setIsMobileTopicsOpen(!isMobileTopicsOpen)}
+                className="flex-1 flex items-center justify-center gap-1.5 px-2 py-1 bg-slate-50 hover:bg-slate-100 rounded-lg text-center truncate"
+              >
+                <BookOpen className="w-3.5 h-3.5 shrink-0" style={{ color: tech.color }} />
+                <span className="text-xs font-bold text-slate-900 truncate">
+                  {currentTopicIndex + 1}. {activeTopic?.title}
+                </span>
+                <ChevronDown className={cn("w-3.5 h-3.5 text-slate-400 transition-transform shrink-0", isMobileTopicsOpen && "rotate-180")} />
+              </button>
+
+              <button
+                onClick={handleNextTopic}
+                disabled={currentTopicIndex === topicsList.length - 1}
+                className="p-1.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-600 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-100 shrink-0"
+                title="Next Topic"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+
+            {isMobileTopicsOpen && (
+              <div className="pt-2 border-t border-slate-100 max-h-64 overflow-y-auto space-y-1">
+                {topicsList.map((t, idx) => {
+                  const isSelected = activeTopic?.id === t.id;
+                  const isCompleted = isTopicCompleted(slug, t.id);
+                  return (
+                    <button
+                      key={t.id}
+                      onClick={() => {
+                        handleTopicSelect(t.slug);
+                        setIsMobileTopicsOpen(false);
+                      }}
+                      className={cn(
+                        "w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs transition-colors text-left truncate",
+                        isSelected ? "bg-slate-900 text-white font-bold" : "text-slate-700 hover:bg-slate-100"
+                      )}
+                    >
+                      <div className="flex items-center gap-2 truncate pr-2">
+                        <span className={cn("w-4 h-4 rounded flex items-center justify-center text-[10px] font-bold shrink-0", isSelected ? "bg-white/20 text-white" : "bg-slate-100 text-slate-500")}>
+                          {idx + 1}
+                        </span>
+                        <span className="truncate">{t.title}</span>
+                      </div>
+                      {isCompleted && <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0" />}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
+            {/* Left Topics Navigation List (Desktop only) */}
+            <aside className="hidden lg:block w-80 xl:w-88 flex-shrink-0 bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-xs space-y-4 sticky top-20">
             <div className="flex items-center justify-between px-1 pb-3 border-b border-slate-100">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500">
                 <BookOpen className="w-4 h-4" style={{ color: tech.color }} />
@@ -819,6 +885,7 @@ export default function TechnologyPage() {
               </div>
             )}
           </main>
+          </div>
         </div>
       )}
     </div>

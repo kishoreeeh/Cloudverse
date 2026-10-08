@@ -394,9 +394,13 @@ export default function ProjectsTab({ techSlug, techProgress = 0 }) {
                     <span>{techProgress < 100 ? 'Locked (Requires 100%)' : isBuilt ? '1. Review Build' : '1. Build Project'}</span>
                   </Button>
 
-                  {/* Step 2: Deploy to Live (locked until built) */}
+                  {/* Step 2: Deploy to Live (locked until course is 100% AND project is built) */}
                   <Button 
                     onClick={() => {
+                      if (techProgress < 100) {
+                        toast.error(`Please complete 100% of the ${techSlug.toUpperCase()} curriculum to unlock projects!`);
+                        return;
+                      }
                       if (isBuilt) {
                         handleStartDeploy(project);
                       } else {
@@ -405,13 +409,25 @@ export default function ProjectsTab({ techSlug, techProgress = 0 }) {
                       }
                     }}
                     className={`flex-1 font-extrabold text-xs sm:text-sm py-3 transition-all ${
-                      isBuilt 
-                        ? 'bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white shadow-lg shadow-emerald-600/20 hover:scale-[1.02] animate-pulse' 
-                        : 'bg-slate-100 text-slate-400 border border-slate-200 hover:bg-slate-200/70 hover:text-slate-600'
+                      techProgress < 100
+                        ? 'bg-slate-100 text-slate-400 border border-slate-200 cursor-not-allowed hover:bg-slate-100'
+                        : isBuilt 
+                          ? 'bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white shadow-lg shadow-emerald-600/20 hover:scale-[1.02] animate-pulse' 
+                          : 'bg-slate-100 text-slate-400 border border-slate-200 hover:bg-slate-200/70 hover:text-slate-600'
                     }`}
                   >
-                    {!isBuilt ? <Lock className="w-3.5 h-3.5 mr-1.5 shrink-0" /> : <Rocket className="w-4 h-4 mr-1.5 shrink-0 animate-bounce" />}
-                    <span>2. Deploy to Live</span>
+                    {techProgress < 100 || !isBuilt ? (
+                      <Lock className="w-3.5 h-3.5 mr-1.5 shrink-0" />
+                    ) : (
+                      <Rocket className="w-4 h-4 mr-1.5 shrink-0 animate-bounce" />
+                    )}
+                    <span>
+                      {techProgress < 100
+                        ? 'Locked (Requires 100%)'
+                        : isBuilt
+                          ? '2. Deploy to Live'
+                          : '2. Deploy (Build First)'}
+                    </span>
                   </Button>
                 </div>
               </div>
@@ -428,13 +444,13 @@ export default function ProjectsTab({ techSlug, techProgress = 0 }) {
             initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} 
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto"
+            className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-2.5 sm:p-4 overflow-y-auto"
           >
             <motion.div 
               initial={{ scale: 0.95, opacity: 0 }} 
               animate={{ scale: 1, opacity: 1 }} 
               exit={{ scale: 0.95, opacity: 0 }}
-              className="bg-white rounded-3xl max-w-3xl w-full overflow-hidden border border-slate-200 shadow-2xl my-8 max-h-[90vh] flex flex-col"
+              className="bg-white rounded-2xl sm:rounded-3xl max-w-3xl w-full overflow-hidden border border-slate-200 shadow-2xl my-2 sm:my-8 max-h-[92vh] flex flex-col"
             >
               {/* Modal Header */}
               <div className="bg-slate-900 px-6 py-4 flex justify-between items-center text-white border-b border-slate-800 shrink-0">
@@ -544,13 +560,13 @@ export default function ProjectsTab({ techSlug, techProgress = 0 }) {
             initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} 
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto"
+            className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-2.5 sm:p-4 overflow-y-auto"
           >
             <motion.div 
               initial={{ scale: 0.95, opacity: 0 }} 
               animate={{ scale: 1, opacity: 1 }} 
               exit={{ scale: 0.95, opacity: 0 }}
-              className="bg-white rounded-3xl max-w-2xl w-full overflow-hidden border border-slate-200 shadow-2xl my-8"
+              className="bg-white rounded-2xl sm:rounded-3xl max-w-2xl w-full overflow-hidden border border-slate-200 shadow-2xl my-2 sm:my-8"
             >
               {/* Modal Header */}
               <div className="bg-slate-900 px-6 py-4 flex justify-between items-center text-white border-b border-slate-800">
