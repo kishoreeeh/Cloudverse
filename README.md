@@ -165,6 +165,23 @@ npm run dev
 
 ---
 
+## Netlify Deployment
+
+The React frontend is configured for the Netlify project `cloudversee`, with the
+production address https://cloudversee.netlify.app. The root `netlify.toml` sets
+`frontend` as the build base directory, installs locked dependencies with
+`npm ci --include=dev`, runs `npm run build`, and publishes
+`frontend/dist`. A single-page application redirect supports direct links and
+page refreshes on React Router routes.
+
+This deployment is frontend-only. The Java backend and MongoDB are not deployed,
+so backend-dependent features such as saving notes are unavailable. The existing
+bundled learning content remains part of the frontend. To connect a separately
+hosted backend later, set `VITE_API_URL` to its public HTTPS API base URL in the
+Netlify project environment settings and redeploy.
+
+---
+
 ## REST API Endpoints
 
 | Method | Endpoint | Description |
